@@ -6,6 +6,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjetController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\TrelloController;
+
+// test
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,4 +32,3 @@ Route::get('/trellos', [TrelloController::class, 'index']);
 Route::get('/projets', [ProjetController::class, 'index']);
 Route::get('/profils/{id}/edit', [ProfilController::class, 'edit'])
     ->name('profils.edit');
-
