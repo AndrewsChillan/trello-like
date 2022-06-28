@@ -1,7 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controller\BController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProjetController;
+use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\TrelloController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,4 +23,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::get('/trellos', [TrelloController::class, 'index']);
+Route::get('/projets', [ProjetController::class, 'index']);
+Route::get('/profils/{id}/edit', [ProfilController::class, 'edit'])
+    ->name('profils.edit');
+
