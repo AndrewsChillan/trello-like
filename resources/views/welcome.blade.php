@@ -23,7 +23,7 @@
                                         <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 
                                         @if (Route::has('register'))
-                                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                                            <a href="{{ route('register') }}" class=" text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
                                         @endif
                                     @endauth
                                 </div>
@@ -31,8 +31,9 @@
                                 @endif
                         </div>
                     </li>
-                
-                    {{-- <li class="nav-item dropdown">
+                @auth
+                    <li class="nav-item dropdown">
+                        
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
@@ -48,7 +49,8 @@
                                         @csrf
                                     </form>
                                 </div>
-                    </li> --}}
+                    </li>
+                    @endauth
                 </ul>
             </div>
         </div>
