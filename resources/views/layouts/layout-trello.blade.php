@@ -27,6 +27,10 @@
 <main>
 
 
+@yield('trello create')
+
+
+
 <section class="projectsContainer">
     @yield('projects-display')
 </section>

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CardRequest;
+use App\Models\Cards;
 use Illuminate\Http\Request;
 
-class ProjetController extends Controller
+class CardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,9 @@ class ProjetController extends Controller
      */
     public function index()
     {
-        
+
+        $cards = Cards::all();
+        return view('cards.index', compact('cards'));
     }
 
     /**
@@ -23,7 +27,7 @@ class ProjetController extends Controller
      */
     public function create()
     {
-        //
+        return view('cards.create');
     }
 
     /**
@@ -32,9 +36,15 @@ class ProjetController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CardRequest $request)
     {
-        //
+        $card = [
+            'content' => $request->input('content'),
+        ];
+
+        Cards::create($card);
+
+        return redirect()->route('cards.index');
     }
 
     /**
@@ -45,7 +55,9 @@ class ProjetController extends Controller
      */
     public function show($id)
     {
-        //
+        $card = Cards::with('list_id')->find($id);
+
+        return view('cards.show', compact('card'));
     }
 
     /**
@@ -54,10 +66,11 @@ class ProjetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(CardRequest $card)
     {
-        //
+        return view('cards.edit', compact('card'));
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -66,9 +79,13 @@ class ProjetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CardRequest $request, $id)
     {
-        //
+        $card = Cards::find($id);
+        $card->statut = $request->input('content');
+        $card->save();
+
+        return redirect()->route('cards.index');
     }
 
     /**
@@ -79,6 +96,9 @@ class ProjetController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $card = Cards::find($id);
+        $card->delete();
+
+        return redirect()->route('cards.index');
     }
 }

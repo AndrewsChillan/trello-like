@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('lists', function (Blueprint $table) {
             $table->id();
             $table->string('statut');
-            $table->string('id_projet');
+            $table->string('projet_id');
             $table->timestamps();
         });
     }
