@@ -56,8 +56,9 @@ class TrelloController extends Controller
     public function show($id)
     {
         $project = Project::with('statuts.cards')->find($id);
-        dd($project);
-        return view('trellos.show', compact('project'));
+        $statuts = $project->statuts;
+
+        return view('trellos.show', compact('statuts'));
     }
 
 
