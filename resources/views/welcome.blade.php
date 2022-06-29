@@ -83,7 +83,7 @@
             <p>Project n°{{ $project->id}}</p>
             <p>Date de création: {{ $project->created_at }}</p>
             <p>Dernière modification: {{ $project->updated_at }}</p>
-             <a href="{{ route('trellos.show', ['id' => $projet->id]) }}">Afficher</a>
+             <a href="{{ route('trellos.show', ['id' => $project->id]) }}">Afficher</a>
             {{-- <a href="{{ route('blogs.show', ['id' => $post->id]) }}">Afficher</a> --}}
             {{-- <form action="{{ route('projet.destroy', ['id' => $projet->id]) }}" method="post">
             @csrf
