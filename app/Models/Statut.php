@@ -9,8 +9,12 @@ class Statut extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
-    public function project()
+    public function cards()
     {
         return $this->hasMany(Card::class);
+    }
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
     }
 }

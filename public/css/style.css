@@ -16,4 +16,13 @@ footer{
     width: 100%;
 }
 
+.profileForm{
+    text-align: center;
+    margin-top: 8rem;
+    border: solid;
+    PADDING: 4REM;
+    WIDTH: fit-content;
+    margin: auto;
+    margin-top: 8rem;
+}
 

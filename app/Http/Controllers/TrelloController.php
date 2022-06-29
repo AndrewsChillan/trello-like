@@ -18,8 +18,6 @@ class TrelloController extends Controller
         // récupération de toutes la table projets en passant par 
         // le Model / la classe "Projets" en connexion avec la BDD
         $projects = Project::all();
-
-
         return view('welcome', compact('projects'));
     }
 
@@ -51,17 +49,16 @@ class TrelloController extends Controller
         Project::create($project);
 
         // redirection vers la page index
-        return redirect()->route('projects.index');
+        return redirect()->route('trellos.index');
     }
 
 
     public function show($id)
     {
-        $project = Project::find($id);
+        $project = Project::with('statuts.cards')->find($id);
+        $statuts = $project->statuts;
 
-        $statut = Statut::all();
-
-        return view('projects.index', compact('project', 'statut'));
+        return view('trellos.show', compact('statuts'));
     }
 
 

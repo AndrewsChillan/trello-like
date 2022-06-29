@@ -10,7 +10,7 @@ class Card extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
-    public function Card()
+    public function statut()
     {
         return $this->belongsTo(Statut::class);
     }
