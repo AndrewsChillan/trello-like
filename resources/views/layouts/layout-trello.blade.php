@@ -29,7 +29,9 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
+                        @auth
                         <a class="nav-link active" aria-current="page" href="{{ route('profiles.edit', ["id" => $profiles = Auth::user()->id]) }}">Profil</a>
+                        @endauth
                     </li>
                     
                     <li>
