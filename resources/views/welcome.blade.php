@@ -59,7 +59,10 @@
 
 {{-- Bouton d'ajout de projet --}}
 @section('bouton-ajout-projet')
+<form action="{{route('trellos.create')}}">
 <button type="submit" class="btn btn-primary">Ajouter un projet</button>
+</form>
+
 @endsection
 
 
@@ -78,6 +81,7 @@
         <p>Projet n°{{ $projet->id}}</p>
         <p>Date de création: {{ $projet->created_at }}</p>
         <p>Dernière modification: {{ $projet->updated_at }}</p>
+        <a href="{{ route('trellos.show', ['id' => $projet->id]) }}">Afficher</a>
         {{-- <a href="{{ route('blogs.show', ['id' => $post->id]) }}">Afficher</a> --}}
         {{-- <form action="{{ route('projet.destroy', ['id' => $projet->id]) }}" method="post">
         @csrf

@@ -24,6 +24,8 @@
 <main>
 @yield('bouton-ajout-projet')
 @yield('affichage-projets')
+@yield('trello create')
+@yield('projet index')
 
 </main>
 

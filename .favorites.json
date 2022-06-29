@@ -1,0 +1,42 @@
+[
+    {
+        "type": "Directory",
+        "name": "/Users/Ambivalence/Desktop/trello-like/app/Http/Controllers",
+        "parent_id": null,
+        "workspaceRoot": "/Users/Ambivalence/Desktop/trello-like",
+        "workspacePath": "app/Http/Controllers",
+        "id": "lsIpEA8OBHm3wrWk"
+    },
+    {
+        "type": "Directory",
+        "name": "/Users/Ambivalence/Desktop/trello-like/app/Models",
+        "parent_id": null,
+        "workspaceRoot": "/Users/Ambivalence/Desktop/trello-like",
+        "workspacePath": "app/Models",
+        "id": "Zhz17bVEAiwxgrsW"
+    },
+    {
+        "type": "Directory",
+        "name": "/Users/Ambivalence/Desktop/trello-like/database/migrations",
+        "parent_id": null,
+        "workspaceRoot": "/Users/Ambivalence/Desktop/trello-like",
+        "workspacePath": "database/migrations",
+        "id": "5rlwE7WoVSRtB3cD"
+    },
+    {
+        "type": "Directory",
+        "name": "/Users/Ambivalence/Desktop/trello-like/resources/views",
+        "parent_id": null,
+        "workspaceRoot": "/Users/Ambivalence/Desktop/trello-like",
+        "workspacePath": "resources/views",
+        "id": "c5OzhiqoexKdEkyI"
+    },
+    {
+        "type": "Directory",
+        "name": "/Users/Ambivalence/Desktop/trello-like/routes",
+        "parent_id": null,
+        "workspaceRoot": "/Users/Ambivalence/Desktop/trello-like",
+        "workspacePath": "routes",
+        "id": "a92Cb15RwltfZHyP"
+    }
+]
