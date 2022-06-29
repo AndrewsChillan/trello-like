@@ -31,16 +31,18 @@ class TrelloController extends Controller
 
     public function store(Request $request)
     {
+
         // Validation de formulaire avant envoie dans la BDD
         $request->validate([
             'title_projet' => 'required|string|max:50',
-            'user_id' => Auth::user()->id,
+
         ]);
 
         // Remplissage (préparation) de la table projets en BDD
         // ("colonne" => nouvelle data)
         $projet = [
             "title" => $request->title_projet,
+            'user_id' => Auth::user()->id,
         ];
 
         // création de la nouvelle ligne avec les nouvelles data
