@@ -8,13 +8,22 @@ use Illuminate\Http\Request;
 
 class ProfilController extends Controller
 {
-    public function edit()
+    public function edit($id)
     {
-        // récupération des informations de la table users
-        // le Model / la classe "User" en connexion avec la BDD
-        $profiles = Auth::user()->id;
+        
+        $profile = User::find($id);
 
+        return view('profiles.edit', compact('profile'));
+    }
 
-        return view('profil.edit');
+    
+    public function update(Request $request, $id)
+    {
+        $profile = User::findOrFail($id);
+        $profile->name = $request->name;
+        $profile->email = $request->email;
+        
+        $profile->save();
+        return redirect()->route('trellos.index');
     }
 }
