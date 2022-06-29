@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('cards', function (Blueprint $table) {
             $table->id();
             $table->text('content');
-            $table->string('list_id');
+            $table->string('statut_id');
             $table->timestamps();
         });
     }

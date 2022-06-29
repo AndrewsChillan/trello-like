@@ -6,7 +6,7 @@ use App\Http\Requests\CardRequest;
 use App\Models\Card;
 use Illuminate\Http\Request;
 
-class CardController extends Controller
+class ProjectController extends Controller
 {
 
     public function index()
@@ -37,7 +37,7 @@ class CardController extends Controller
 
     public function show($id)
     {
-        $card = Card::with('list_id')->find($id);
+        $card = Card::with('statut_id')->find($id);
 
         return view('projects.show', compact('card'));
     }

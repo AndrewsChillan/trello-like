@@ -49,9 +49,39 @@ Route::delete('/trellos/{id}', [TrelloController::class, 'destroy'])
     ->name('trellos.destroy');
 
 
+/* xxxxxxx PROJECTS xxxxxxx */
 
 
-Route::resource('projects', ProjectController::class);
+// Index
+Route::get('projects', [ProjectController::class, 'index'])
+    ->name('projects.index');
+
+// Create
+Route::get('projects', [ProjectController::class, 'create'])
+    ->name('projects.create');
+
+// Store
+Route::post('projects', [ProjectController::class, 'store'])
+    ->name('projects.store');
+
+// Show
+Route::get('/projects/{id}', [TrelloController::class, 'show'])
+    ->name('projects.show');
+
+// Edit
+Route::get('/projects/{id}/edit', [TrelloController::class, 'edit'])
+    ->name('projects.edit');
+
+// Update
+Route::put('/projects/{id}', [TrelloController::class, 'update'])
+    ->name('projects.update');
+
+// Destroy
+Route::delete('/projects/{id}', [TrelloController::class, 'destroy'])
+    ->name('projects.destroy');
+
+
+
 
 Route::get('/profils/{id}/edit', [ProfilController::class, 'edit'])
     ->name('profils.edit');
