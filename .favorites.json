@@ -1,12 +1,11 @@
 [
     {
         "type": "Directory",
-<<<<<<< HEAD
         "name": "/Users/Ambivalence/Desktop/trello-like/app/Http/Controllers",
         "parent_id": null,
         "workspaceRoot": "/Users/Ambivalence/Desktop/trello-like",
         "workspacePath": "app/Http/Controllers",
-        "id": "lsIpEA8OBHm3wrWk"
+        "id": "20qnF7igsZ4GzJtm"
     },
     {
         "type": "Directory",
@@ -14,15 +13,7 @@
         "parent_id": null,
         "workspaceRoot": "/Users/Ambivalence/Desktop/trello-like",
         "workspacePath": "app/Models",
-        "id": "Zhz17bVEAiwxgrsW"
-    },
-    {
-        "type": "Directory",
-        "name": "/Users/Ambivalence/Desktop/trello-like/database/migrations",
-        "parent_id": null,
-        "workspaceRoot": "/Users/Ambivalence/Desktop/trello-like",
-        "workspacePath": "database/migrations",
-        "id": "5rlwE7WoVSRtB3cD"
+        "id": "AIuD0mNgEOHGvBVs"
     },
     {
         "type": "Directory",
@@ -30,49 +21,14 @@
         "parent_id": null,
         "workspaceRoot": "/Users/Ambivalence/Desktop/trello-like",
         "workspacePath": "resources/views",
-        "id": "c5OzhiqoexKdEkyI"
+        "id": "yVYNE04uAb2WJgP8"
     },
     {
-        "type": "Directory",
-        "name": "/Users/Ambivalence/Desktop/trello-like/routes",
+        "type": "File",
+        "name": "/Users/Ambivalence/Desktop/trello-like/routes/web.php",
         "parent_id": null,
         "workspaceRoot": "/Users/Ambivalence/Desktop/trello-like",
-        "workspacePath": "routes",
-        "id": "a92Cb15RwltfZHyP"
-=======
-        "name": "c:\\Users\\33649\\OneDrive\\Bureau\\trello-like\\trello-like\\app\\Models",
-        "parent_id": null,
-        "fsPath": "c:\\Users\\33649\\OneDrive\\Bureau\\trello-like\\trello-like\\app\\Models",
-        "workspaceRoot": null,
-        "workspacePath": null,
-        "id": "TuZt1PrwL7H3jnI5"
-    },
-    {
-        "type": "Directory",
-        "name": "c:\\Users\\33649\\OneDrive\\Bureau\\trello-like\\trello-like\\app\\Http\\Controllers",
-        "parent_id": null,
-        "fsPath": "c:\\Users\\33649\\OneDrive\\Bureau\\trello-like\\trello-like\\app\\Http\\Controllers",
-        "workspaceRoot": null,
-        "workspacePath": null,
-        "id": "nRLavferwJ7Xk6p0"
-    },
-    {
-        "type": "Directory",
-        "name": "c:\\Users\\33649\\OneDrive\\Bureau\\trello-like\\trello-like\\database\\migrations",
-        "parent_id": null,
-        "fsPath": "c:\\Users\\33649\\OneDrive\\Bureau\\trello-like\\trello-like\\database\\migrations",
-        "workspaceRoot": null,
-        "workspacePath": null,
-        "id": "SQqeUtF14AyvuXaK"
-    },
-    {
-        "type": "Directory",
-        "name": "c:\\Users\\33649\\OneDrive\\Bureau\\trello-like\\trello-like\\resources\\views\\cards",
-        "parent_id": null,
-        "fsPath": "c:\\Users\\33649\\OneDrive\\Bureau\\trello-like\\trello-like\\resources\\views\\cards",
-        "workspaceRoot": null,
-        "workspacePath": null,
-        "id": "rXkYQi4V28WJ0y1E"
->>>>>>> 9286ed3c2272e35c6e60458382c857fb0d439e4d
+        "workspacePath": "routes/web.php",
+        "id": "CcDjQKB0LPgzr1py"
     }
 ]

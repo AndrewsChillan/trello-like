@@ -54,8 +54,7 @@ class TrelloController extends Controller
     {
         $projet = Projects::find($id);
         $listes = Lists::all();
-        dd(Lists::all());
-        return view('projet.index', compact('projet', 'listes'));
+        return view('projets.index', compact('projet', 'listes'));
     }
 
 
