@@ -29,6 +29,8 @@
 
 @yield('trello create')
 
+@yield('profile-form')
+
 
 
 <section class="projectsContainer">
