@@ -5,13 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Lists extends Model
+class Statut extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
-
-    public function projet()
+    public function project()
     {
-        return $this->belongsTo(Lists::class);
+        return $this->hasMany(Card::class);
     }
 }

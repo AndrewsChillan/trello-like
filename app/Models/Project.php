@@ -5,13 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cards extends Model
+class Project extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
-
-    public function Cards()
-    {
-        return $this->hasMany(Cards::class);
-    }
 }
