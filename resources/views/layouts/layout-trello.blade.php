@@ -12,6 +12,9 @@
         <!-- JavaScript -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
+        <!--CSS-->
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet"/>
+
     <title>TRELLO LIKE</title>
 </head>
 <body>
@@ -22,11 +25,17 @@
 </header>
 
 <main>
-@yield('bouton-ajout-projet')
-@yield('affichage-projets')
-@yield('trello create')
-@yield('projet index')
 
+
+@yield('trello create')
+
+
+
+<section class="projectsContainer">
+    @yield('projects-display')
+</section>
+
+@yield('add-btn')
 </main>
 
 <footer>

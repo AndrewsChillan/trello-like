@@ -15,10 +15,10 @@ class TrelloController extends Controller
     {
         // récupération de toutes la table projets en passant par 
         // le Model / la classe "Projets" en connexion avec la BDD
-        $projets = Projects::all();
-        // dd($projets);
+        $projects = Projects::all();
+        
 
-        return view('welcome', compact('projets'));
+        return view('welcome', compact('projects'));
     }
 
 

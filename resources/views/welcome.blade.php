@@ -35,7 +35,7 @@
                     <li class="nav-item dropdown">
                         
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                 Dashboard de {{ Auth::user()->name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -51,6 +51,7 @@
                                 </div>
                     </li>
                     @endauth
+                
                 </ul>
             </div>
         </div>
@@ -58,7 +59,7 @@
 @endsection
 
 {{-- Bouton d'ajout de projet --}}
-@section('bouton-ajout-projet')
+@section('add-btn')
 <form action="{{route('trellos.create')}}">
 <button type="submit" class="btn btn-primary">Ajouter un projet</button>
 </form>
@@ -73,22 +74,24 @@
 
 {{-- Récupération des données BDD pour la table projets --}}
 @auth
-@section('affichage-projets')
-    @if(isset($projets))
-    @foreach ($projets as $projet)
-    <section class="projet">
-        <h2>{{ $projet->title }}</h2>
-        <p>Projet n°{{ $projet->id}}</p>
-        <p>Date de création: {{ $projet->created_at }}</p>
-        <p>Dernière modification: {{ $projet->updated_at }}</p>
-        <a href="{{ route('trellos.show', ['id' => $projet->id]) }}">Afficher</a>
-        {{-- <a href="{{ route('blogs.show', ['id' => $post->id]) }}">Afficher</a> --}}
-        {{-- <form action="{{ route('projet.destroy', ['id' => $projet->id]) }}" method="post">
-        @csrf
-        @method('delete')
-        <input type="submit" value="Supprimer">
-        </form> --}}
-    </section>
+@section('projects-display')
+    @if(isset($projects))
+    @foreach ($projects as $project)
+    
+        <section class="project">
+            <h2>{{ $project->title }}</h2>
+            <p>Project n°{{ $project->id}}</p>
+            <p>Date de création: {{ $project->created_at }}</p>
+            <p>Dernière modification: {{ $project->updated_at }}</p>
+             <a href="{{ route('trellos.show', ['id' => $projet->id]) }}">Afficher</a>
+            {{-- <a href="{{ route('blogs.show', ['id' => $post->id]) }}">Afficher</a> --}}
+            {{-- <form action="{{ route('projet.destroy', ['id' => $projet->id]) }}" method="post">
+            @csrf
+            @method('delete')
+            <input type="submit" value="Supprimer">
+            </form> --}}
+        </section>
+   
     @endforeach
     @endif
 @endsection
@@ -96,10 +99,12 @@
 
 @section('footer')
 <nav class="navbar bg-light">
-  <div class="container-fluid">
-    <span class="navbar-text">
-     Copyright ©2022 Trello-Like.com Tous droits réservés - SARL Cacahuète
-    </span>
+  <div class="container-fluid" style="justify-content: center;">
+ 
+        <span class="navbar-text">
+           Copyright ©2022 Trello-Like.com Tous droits réservés - SARL Cacahuète
+        </span>
+    
   </div>
 </nav>
 @endsection
