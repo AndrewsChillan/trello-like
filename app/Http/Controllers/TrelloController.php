@@ -51,7 +51,7 @@ class TrelloController extends Controller
         Project::create($project);
 
         // redirection vers la page index
-        return redirect()->route('trellos.index');
+        return redirect()->route('projects.index');
     }
 
 
