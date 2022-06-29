@@ -5,7 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Listes extends Model
+class Card extends Model
 {
     use HasFactory;
+    protected $guarded = ['id'];
+
+    public function Cards()
+    {
+        return $this->hasMany(Card::class);
+    }
 }
