@@ -30,6 +30,7 @@
 @yield('trello create')
 
 @yield('profile-form')
+@yield('content')
 
 
 
