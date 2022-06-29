@@ -10,7 +10,8 @@ use App\Http\Controllers\TrelloController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+    })
+        ->name('welcome');
 
 Auth::routes();
 
@@ -55,5 +56,10 @@ Route::resource('projects', ProjectController::class);
 
 
 
-Route::get('/profils/{id}/edit', [ProfilController::class, 'edit'])
-    ->name('profils.edit');
+
+// MAJ Profil
+Route::get('/profiles/{id}/edit', [ProfilController::class, 'edit'])
+    ->name('profiles.edit');
+
+Route::put('/profiles/{id}', [ProfilController::class, 'update'])
+    ->name('profiles.update');
