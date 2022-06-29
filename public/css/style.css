@@ -1,0 +1,19 @@
+.projectsContainer{
+    display:flex;
+}
+
+.project{
+    text-align: center;
+    padding: 2rem;
+    background-color: #00bfff42;
+    margin: 1rem;
+    border-radius: 40px;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+
