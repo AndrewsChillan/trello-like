@@ -12,6 +12,6 @@ class Cards extends Model
 
     public function Cards()
     {
-        return $this->hasMany(Card::class);
+        return $this->hasMany(Cards::class);
     }
 }

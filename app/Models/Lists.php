@@ -9,9 +9,9 @@ class Lists extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
-    
-    public function projet() 
+
+    public function projet()
     {
-        return $this->belongsTo(List::class);
+        return $this->belongsTo(Lists::class);
     }
 }

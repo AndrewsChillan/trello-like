@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CardRequest;
-use App\Models\Card;
+use App\Models\Cards;
 use Illuminate\Http\Request;
 
 class CardController extends Controller
@@ -16,7 +16,7 @@ class CardController extends Controller
     public function index()
     {
 
-        $cards = Card::all();
+        $cards = Cards::all();
         return view('cards.index', compact('cards'));
     }
 
@@ -40,9 +40,9 @@ class CardController extends Controller
     {
         $card = [
             'content' => $request->input('content'),
-         ];
+        ];
 
-        Card::create($card);
+        Cards::create($card);
 
         return redirect()->route('cards.index');
     }
@@ -55,7 +55,7 @@ class CardController extends Controller
      */
     public function show($id)
     {
-        $card = Card::with('list_id')->find($id);
+        $card = Cards::with('list_id')->find($id);
 
         return view('cards.show', compact('card'));
     }
@@ -66,11 +66,11 @@ class CardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Card $card)
+    public function edit(CardRequest $card)
     {
         return view('cards.edit', compact('card'));
     }
-    
+
 
     /**
      * Update the specified resource in storage.
@@ -81,7 +81,7 @@ class CardController extends Controller
      */
     public function update(CardRequest $request, $id)
     {
-        $card = Card::find($id);
+        $card = Cards::find($id);
         $card->statut = $request->input('content');
         $card->save();
 
@@ -96,7 +96,7 @@ class CardController extends Controller
      */
     public function destroy($id)
     {
-        $card = Card::find($id);
+        $card = Cards::find($id);
         $card->delete();
 
         return redirect()->route('cards.index');
