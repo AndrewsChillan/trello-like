@@ -2,9 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\CardController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\TrelloController;
+
 
 
 Route::get('/', function () {
@@ -50,7 +51,7 @@ Route::delete('/trellos/{id}', [TrelloController::class, 'destroy'])
 
 
 
-Route::resource('cards', CardController::class);
+Route::resource('projects', ProjectController::class);
 
 Route::get('/profils/{id}/edit', [ProfilController::class, 'edit'])
     ->name('profils.edit');

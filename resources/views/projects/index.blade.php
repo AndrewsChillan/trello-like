@@ -10,7 +10,7 @@
             <div class="p-3 border bg-light">
                 <div class="container">
                     <div class="row">
-                        <a class="btn btn-primary col-4" href="{{ route('cards.create') }}">Créer une carte</a>
+                        <a class="btn btn-primary col-4" href="{{ route('projects.create') }}">Créer une carte</a>
                     </div>
                     <br>
                     <div class="row">
@@ -26,9 +26,9 @@
                                 <th>{{ $card->id }}</th>
                                 <td>{{ $card->content }}</td>
                                 <td>
-                                    <a class="btn btn-warning" href="{{ route('cards.edit', $card->id) }}">Modifier la carte</a>
+                                    <a class="btn btn-warning" href="{{ route('projects.edit', $card->id) }}">Modifier la carte</a>
 
-                                    <form action="{{ route('cards.destroy', $card->id) }}" method="POST">
+                                    <form action="{{ route('projects.destroy', $card->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
 
@@ -47,7 +47,7 @@
             <div class="p-3 border bg-light">
                 <div class="container">
                     <div class="row">
-                        <a class="btn btn-primary col-4" href="{{ route('cards.create') }}">Créer une carte</a>
+                        <a class="btn btn-primary col-4" href="{{ route('projects.create') }}">Créer une carte</a>
                     </div>
                     <br>
                     <div class="row">
@@ -63,9 +63,9 @@
                                     <th>{{ $card->id }}</th>
                                     <td>{{ $card->content }}</td>
                                     <td>
-                                        <a class="btn btn-warning" href="{{ route('cards.edit', $card->id) }}">Modifier la carte</a>
+                                        <a class="btn btn-warning" href="{{ route('projects.edit', $card->id) }}">Modifier la carte</a>
 
-                                        <form action="{{ route('cards.destroy', $card->id) }}" method="POST">
+                                        <form action="{{ route('projects.destroy', $card->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
 
@@ -85,7 +85,7 @@
             <div class="p-3 border bg-light">
                 <div class="container">
                     <div class="row">
-                        <a class="btn btn-primary col-4" href="{{ route('cards.create') }}">Créer une carte</a>
+                        <a class="btn btn-primary col-4" href="{{ route('projects.create') }}">Créer une carte</a>
                     </div>
                     <br>
                     <div class="row">
@@ -104,9 +104,9 @@
                                     <th>{{ $card->id }}</th>
                                     <td>{{ $card->content }}</td>
                                     <td>
-                                        <a class="btn btn-warning" href="{{ route('cards.edit', $card->id) }}">Modifier la carte</a>
+                                        <a class="btn btn-warning" href="{{ route('projects.edit', $card->id) }}">Modifier la carte</a>
 
-                                        <form action="{{ route('cards.destroy', $card->id) }}" method="POST">
+                                        <form action="{{ route('projects.destroy', $card->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
 

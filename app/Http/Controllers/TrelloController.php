@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use App\Models\Users;
-use App\Models\Projects;
-use App\Models\Lists;
-use App\Models\Cards;
+use App\Models\User;
+use App\Models\Project;
+use App\Models\Statut;
+use App\Models\Card;
+
 
 
 class TrelloController extends Controller
@@ -16,7 +17,7 @@ class TrelloController extends Controller
     {
         // récupération de toutes la table projets en passant par 
         // le Model / la classe "Projets" en connexion avec la BDD
-        $projects = Projects::all();
+        $projects = Project::all();
 
 
         return view('welcome', compact('projects'));
@@ -25,7 +26,7 @@ class TrelloController extends Controller
 
     public function create()
     {
-        return view('trello.create');
+        return view('trellos.create');
     }
 
 
@@ -34,20 +35,20 @@ class TrelloController extends Controller
 
         // Validation de formulaire avant envoie dans la BDD
         $request->validate([
-            'title_projet' => 'required|string|max:50',
+            'title' => 'required|string|max:50',
 
         ]);
 
         // Remplissage (préparation) de la table projets en BDD
         // ("colonne" => nouvelle data)
-        $projet = [
-            "title" => $request->title_projet,
+        $project = [
+            "title" => $request->title,
             'user_id' => Auth::user()->id,
         ];
 
         // création de la nouvelle ligne avec les nouvelles data
         // dans la table projets
-        Projects::create($projet);
+        Project::create($project);
 
         // redirection vers la page index
         return redirect()->route('trellos.index');
@@ -56,9 +57,11 @@ class TrelloController extends Controller
 
     public function show($id)
     {
-        $projet = Projects::find($id);
-        $listes = Lists::all();
-        return view('projets.index', compact('projet', 'listes'));
+        $project = Project::find($id);
+
+        $statut = Statut::all();
+
+        return view('projects.index', compact('project', 'statut'));
     }
 
 

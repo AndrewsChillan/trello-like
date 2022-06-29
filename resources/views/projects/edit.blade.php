@@ -4,10 +4,10 @@
 
 <div class="container">
     <div class="row">
-        <a href="{{ route('cards.index') }}" class="btn btn-secondary">Retour</a>
+        <a href="{{ route('projects.index') }}" class="btn btn-secondary">Retour</a>
     </div>
     <div class="row">
-        <form action="{{ route('cards.update', $card->id) }}" method="POST">
+        <form action="{{ route('projects.update', $card->id) }}" method="POST">
             @csrf
             @method('PUT')
 
