@@ -15,7 +15,10 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+
+                    
                 </div>
+                <input type="submit" href="welcome" value="Commencer l'expérience TRELLO LIKE">
             </div>
         </div>
     </div>

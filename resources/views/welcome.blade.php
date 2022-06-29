@@ -37,9 +37,36 @@
     </nav>       
 @endsection
 
-@section('content-welcome')
+{{-- Bouton d'ajout de projet --}}
+@section('bouton-ajout-projet')
 <button type="submit" class="btn btn-primary">Ajouter un projet</button>
 @endsection
+
+
+{{-- @section('header store')
+    <h1>Projets</h1>    
+@endsection --}}
+
+
+{{-- Récupération des données BDD pour la table projets --}}
+@auth
+@section('affichage-projets')
+    @foreach ($projets as $projet)
+    <section class="projet">
+        <h2>{{ $projet->title }}</h2>
+        <p>Projet n°{{ $projet->id}}</p>
+        <p>Date de création: {{ $projet->created_at }}</p>
+        <p>Dernière modification: {{ $projet->updated_at }}</p>
+        {{-- <a href="{{ route('blogs.show', ['id' => $post->id]) }}">Afficher</a> --}}
+        {{-- <form action="{{ route('projet.destroy', ['id' => $projet->id]) }}" method="post">
+        @csrf
+        @method('delete')
+        <input type="submit" value="Supprimer">
+        </form> --}}
+    </section>
+    @endforeach
+@endsection
+{{-- @endsection --}}
 
 @section('footer')
 <nav class="navbar bg-light">
@@ -51,5 +78,5 @@
 </nav>
 @endsection
 
-
+@endauth
             
