@@ -18,9 +18,10 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 // Route TRELLOS
 
-// Index
+// Index - Route d'affichage de tous les projets
 Route::get('/trellos', [TrelloController::class, 'index'])
     ->name('trellos.index');
+
 
 // Create
 Route::get('/trellos/create', [TrelloController::class, 'create'])

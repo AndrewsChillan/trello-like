@@ -22,7 +22,8 @@
 </header>
 
 <main>
-@yield('content-welcome')
+@yield('bouton-ajout-projet')
+@yield('affichage-projets')
 
 </main>
 

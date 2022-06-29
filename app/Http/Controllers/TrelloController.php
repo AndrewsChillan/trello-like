@@ -3,11 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Projets;
 
 class TrelloController extends Controller
 {
     public function index()
     {
+        // récupération de toutes la table projets en passant par 
+        // le Model / la classe "Projets" en connexion avec la BDD
+        $projets = Projets::all();
+        // dd($projets);
+
+        return view('welcome', compact('projets'));
     }
 
 
