@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Users;
 use App\Models\Projects;
@@ -16,7 +17,7 @@ class TrelloController extends Controller
         // récupération de toutes la table projets en passant par 
         // le Model / la classe "Projets" en connexion avec la BDD
         $projects = Projects::all();
-        
+
 
         return view('welcome', compact('projects'));
     }
@@ -33,6 +34,7 @@ class TrelloController extends Controller
         // Validation de formulaire avant envoie dans la BDD
         $request->validate([
             'title_projet' => 'required|string|max:50',
+            'user_id' => Auth::user()->id,
         ]);
 
         // Remplissage (préparation) de la table projets en BDD
