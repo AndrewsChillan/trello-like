@@ -18,7 +18,6 @@
 
                     
                 </div>
-                <input type="submit" href="welcome" value="Commencer l'expérience TRELLO LIKE">
             </div>
         </div>
     </div>
