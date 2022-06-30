@@ -11,14 +11,14 @@
 @endsection
 
 
-{{-- @section('header store')
-    <h1>Projets</h1>    
-@endsection --}}
+
 
 
 {{-- Récupération des données BDD pour la table projets --}}
 @auth
 @section('projects-display')
+
+   
     @if(isset($projects))
     @foreach ($projects as $project)
     
@@ -27,13 +27,16 @@
             <p>Project n°{{ $project->id}}</p>
             <p>Date de création: {{ $project->created_at }}</p>
             <p>Dernière modification: {{ $project->updated_at }}</p>
-             <a href="{{ route('trellos.show', ['id' => $project->id]) }}">Afficher</a>
+            
+            <p><a href="{{ route('trellos.show', ['id' => $project->id]) }}">Afficher</a></p>
+            
+
             {{-- <a href="{{ route('blogs.show', ['id' => $post->id]) }}">Afficher</a> --}}
-            {{-- <form action="{{ route('projet.destroy', ['id' => $projet->id]) }}" method="post">
+            <form action="{{ route('trellos.destroy', ['id' => $project->id]) }}" method="post">
             @csrf
             @method('delete')
-            <input type="submit" value="Supprimer">
-            </form> --}}
+            <button type="submit" class="btn btn-danger">Supprimer</button>
+            </form>
         </section>
    
     @endforeach

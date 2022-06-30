@@ -74,5 +74,8 @@ class TrelloController extends Controller
 
     public function destroy($id)
     {
+        $project = Project::findOrFail($id);
+        $project->delete();
+        return redirect()->route('trellos.index');
     }
 }
