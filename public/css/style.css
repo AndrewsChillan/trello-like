@@ -1,8 +1,8 @@
-.projectsContainer{
-    display:flex;
+.projectsContainer {
+    display: flex;
 }
 
-.project{
+.project {
     text-align: center;
     padding: 2rem;
     background-color: #00bfff42;
@@ -10,18 +10,41 @@
     border-radius: 40px;
 }
 
-footer{
+footer {
     position: absolute;
     bottom: 0;
     width: 100%;
 }
 
-.profileForm{
+.profileForm {
     text-align: center;
     margin-top: 8rem;
     border: solid;
-    PADDING: 4REM;
-    WIDTH: fit-content;
+    padding: 4rem;
+    width: fit-content;
+    margin: auto;
+    margin-top: 8rem;
+}
+
+input {
+    text-align: center;
+    border: none;
+}
+
+.inputProjectTitle {
+    background-color: #c3eeff;
+}
+
+.inputProjectTitle:focus {
+    background-color: white;
+}
+
+.createProjectForm {
+    text-align: center;
+    margin-top: 8rem;
+    border: solid;
+    padding: 4rem;
+    width: fit-content;
     margin: auto;
     margin-top: 8rem;
 }

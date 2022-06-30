@@ -11,29 +11,41 @@
 @endsection
 
 
-{{-- @section('header store')
-    <h1>Projets</h1>    
-@endsection --}}
+
 
 
 {{-- Récupération des données BDD pour la table projets --}}
 @auth
 @section('projects-display')
+
+   
     @if(isset($projects))
     @foreach ($projects as $project)
     
         <section class="project">
-            <h2>{{ $project->title }}</h2>
+            <h2>
+                <form action="{{ route('trellos.update', ['id' => $project->id]) }}" method="POST">
+                    @csrf
+
+                    @method('put')
+                    <p><input class="inputProjectTitle" type="text" name="title" value="{{ $project->title }}"></p>
+                </form>
+            </h2>
+
             <p>Project n°{{ $project->id}}</p>
             <p>Date de création: {{ $project->created_at }}</p>
             <p>Dernière modification: {{ $project->updated_at }}</p>
-             <a href="{{ route('trellos.show', ['id' => $project->id]) }}">Afficher</a>
-            {{-- <a href="{{ route('blogs.show', ['id' => $post->id]) }}">Afficher</a> --}}
-            {{-- <form action="{{ route('projet.destroy', ['id' => $projet->id]) }}" method="post">
+            
+            {{-- <p><a href="{{ route('trellos.show', ['id' => $project->id]) }}">Afficher</a></p> --}}
+            <p>
+            <a class="btn btn-primary" href="{{ route('trellos.show', ['id' => $project->id]) }}" role="button">Afficher</a>
+            
+            <form action="{{ route('trellos.destroy', ['id' => $project->id]) }}" method="post">
             @csrf
             @method('delete')
-            <input type="submit" value="Supprimer">
-            </form> --}}
+            <button type="submit" class="btn btn-danger">Supprimer</button>
+            </form>
+            </p>
         </section>
    
     @endforeach
