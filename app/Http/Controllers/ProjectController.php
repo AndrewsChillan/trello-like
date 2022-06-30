@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CardRequest;
+use App\Models\Project;
 use App\Models\Card;
+
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -39,13 +41,14 @@ class ProjectController extends Controller
     {
         $card = Card::with('statut_id')->find($id);
 
-        return view('projects.show', compact('card'));
+        return view('projects.show', compact('project'));
     }
 
 
-    public function edit(CardRequest $card)
-    {
-        return view('projects.edit', compact('card'));
+    public function edit($id)
+    {   
+        $card = Card::find($id);
+        return view('#', compact('id'));
     }
 
 
