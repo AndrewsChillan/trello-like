@@ -44,10 +44,6 @@ class TrelloController extends Controller
             'user_id' => Auth::user()->id,
         ];
 
-        // création de la nouvelle ligne avec les nouvelles data
-        // dans la table projets
-        Project::create($project);
-
         // redirection vers la page index
         return redirect()->route('trellos.index');
     }
@@ -58,7 +54,7 @@ class TrelloController extends Controller
         $project = Project::with('statuts.cards')->find($id);
         $statuts = $project->statuts;
 
-        return view('trellos.show', compact('statuts'));
+        return view('trellos.show', compact('statuts', 'project'));
     }
 
 
