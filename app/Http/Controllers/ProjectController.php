@@ -11,61 +11,35 @@ use Illuminate\Http\Request;
 class ProjectController extends Controller
 {
 
-    public function index()
-    {
 
-        $cards = Card::all();
-        return view('projects.index', compact('cards'));
-    }
-
-
-    public function create()
-    {
-        return view('projects.create');
-    }
-
-
-    public function store(CardRequest $request)
+    public function store(Request $request, $statut)
     {
         $card = [
-            'content' => $request->input('content'),
+            'content' => $request->input('new_card'),
+            'statut_id' => $request->input('id_statut')
         ];
 
         Card::create($card);
 
-        return redirect()->route('projects.index');
+        return redirect()->route('trellos.show', $statut);
     }
 
 
-    public function show($id)
+    public function update(Request $request, $id)
     {
-        $card = Card::with('statut_id')->find($id);
-
-        return view('projects.show', compact('project'));
-    }
-
-
-    public function edit($id)
-    {   
-        $card = Card::find($id);
-        return view('#', compact('id'));
-    }
-
-
-    public function update(CardRequest $request, $id)
-    {
-        $card = Card::find($id);
-        $card->statut = $request->input('content');
+        $project = $id;
+        $card = Card::find($request->id_card);
+        $card->content = $request->input('content_card');
         $card->save();
 
-        return redirect()->route('projects.index');
+        return redirect()->route('trellos.show', $project);
     }
 
-    public function destroy($id)
+
+    public function destroy($id, $project)
     {
         $card = Card::find($id);
         $card->delete();
-
-        return redirect()->route('projects.index');
+        return redirect()->route('trellos.show', $project);
     }
 }

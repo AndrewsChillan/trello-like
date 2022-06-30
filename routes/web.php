@@ -56,6 +56,11 @@ Route::delete('/trellos/{id}', [TrelloController::class, 'destroy'])
 
 Route::resource('projects', ProjectController::class);
 
+Route::delete('/projects/{id}/{project}', [ProjectController::class, 'destroy'])
+    ->name('projects.destroy.id');
+
+Route::post('/projects/{statut}', [ProjectController::class, 'store'])
+    ->name('projects.store.id');
 
 
 // MAJ Profil

@@ -44,25 +44,25 @@ class TrelloController extends Controller
             'user_id' => Auth::user()->id,
         ];
 
-        $statut1 =[
-            "statut" => 'A faire',
-            "project_id" => ($project = $this->id)        
-        ];
-        $statut2 =[
-            "statut" => 'En cours',
-            "project_id" => ($project = $this->id)  
-        ];
-        $statut3 =[
-            "statut" => 'Terminé', 
-            "project_id" => ($project = $this->id) 
-        ];
+        // $statut1 =[
+        //     "statut" => 'A faire',
+        //     "project_id" => ($project = $this->id)        
+        // ];
+        // $statut2 =[
+        //     "statut" => 'En cours',
+        //     "project_id" => ($project = $this->id)  
+        // ];
+        // $statut3 =[
+        //     "statut" => 'Terminé', 
+        //     "project_id" => ($project = $this->id) 
+        // ];
 
-        // création de la nouvelle ligne avec les nouvelles data
-        // dans la table projets
-        Project::create($project);
-        Statut::create($statut1);
-        Statut::create($statut2);
-        Statut::create($statut3);
+        // // création de la nouvelle ligne avec les nouvelles data
+        // // dans la table projets
+        // Project::create($project);
+        // Statut::create($statut1);
+        // Statut::create($statut2);
+        // Statut::create($statut3);
 
 
         // redirection vers la page index
@@ -75,7 +75,7 @@ class TrelloController extends Controller
         $project = Project::with('statuts.cards')->find($id);
         $statuts = $project->statuts;
 
-        return view('trellos.show', compact('statuts'));
+        return view('trellos.show', compact('statuts', 'project'));
     }
 
 
