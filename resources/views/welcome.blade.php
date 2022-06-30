@@ -1,4 +1,4 @@
-@extends('/layouts/layout-trello')
+@extends('layouts.layout-trello')
         
 
 
