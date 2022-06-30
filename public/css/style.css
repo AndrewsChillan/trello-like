@@ -38,3 +38,14 @@ input {
 .inputProjectTitle:focus {
     background-color: white;
 }
+
+.createProjectForm {
+    text-align: center;
+    margin-top: 8rem;
+    border: solid;
+    padding: 4rem;
+    width: fit-content;
+    margin: auto;
+    margin-top: 8rem;
+}
+
