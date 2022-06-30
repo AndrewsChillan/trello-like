@@ -59,16 +59,27 @@ class TrelloController extends Controller
 
 
     public function edit($id)
-    {
+    {   
+        $project = Project::find($id);
+        return view('trellos.edit', compact('project'));
     }
 
 
     public function update(Request $request, $id)
     {
+        $project = Project::findOrFail($id);
+        $project->title = $request->title;
+        
+        $project->save();
+
+        return redirect()->route('trellos.index');
     }
 
 
     public function destroy($id)
     {
+        $project = Project::findOrFail($id);
+        $project->delete();
+        return redirect()->route('trellos.index');
     }
 }
