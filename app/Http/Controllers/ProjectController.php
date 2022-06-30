@@ -14,6 +14,11 @@ class ProjectController extends Controller
 
     public function store(Request $request, $statut)
     {
+        // Validation de formulaire avant envoie dans la BDD
+        $request->validate([
+            'new_card' => 'required|string',
+        ]);
+
         $card = [
             'content' => $request->input('new_card'),
             'statut_id' => $request->input('id_statut')
@@ -27,6 +32,11 @@ class ProjectController extends Controller
 
     public function update(Request $request, $id)
     {
+        // Validation de formulaire avant envoie dans la BDD
+        $request->validate([
+            'content_card' => 'required|string',
+        ]);
+
         $project = $id;
         $card = Card::find($request->id_card);
         $card->content = $request->input('content_card');
