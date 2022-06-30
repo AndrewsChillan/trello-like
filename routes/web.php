@@ -53,8 +53,8 @@ Route::delete('/trellos/{id}', [TrelloController::class, 'destroy'])
 
 /* xxxxxxx PROJECTS xxxxxxx */
 
-Route::resource('projects', ProjectController::class);
 
+Route::resource('projects', ProjectController::class);
 
 
 

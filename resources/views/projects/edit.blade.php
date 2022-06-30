@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('content')
 
@@ -7,7 +7,7 @@
         <a href="{{ route('projects.index') }}" class="btn btn-secondary">Retour</a>
     </div>
     <div class="row">
-        <form action="{{ route('projects.update', $card->id) }}" method="POST">
+        <form action="{{ route('projects.update', ["id" => $card->id]) }}" method="POST">
             @csrf
             @method('PUT')
 
@@ -17,4 +17,4 @@
     </div>
 </div>
 
-@endsection
+@endsection --}}
