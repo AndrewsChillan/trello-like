@@ -48,7 +48,7 @@ class ProjectController extends Controller
     public function edit($id)
     {   
         $card = Card::find($id);
-        return view('projects.edit', compact('id'));
+        return view('#', compact('id'));
     }
 
 
