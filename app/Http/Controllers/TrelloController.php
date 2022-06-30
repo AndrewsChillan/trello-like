@@ -59,7 +59,7 @@ class TrelloController extends Controller
 
         // // création de la nouvelle ligne avec les nouvelles data
         // // dans la table projets
-        // Project::create($project);
+        Project::create($project);
         // Statut::create($statut1);
         // Statut::create($statut2);
         // Statut::create($statut3);
