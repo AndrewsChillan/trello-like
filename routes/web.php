@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectController;
@@ -10,8 +11,8 @@ use App\Http\Controllers\TrelloController;
 
 Route::get('/', function () {
     return view('welcome');
-    })
-        ->name('welcome');
+})
+    ->name('welcome');
 
 Auth::routes();
 
