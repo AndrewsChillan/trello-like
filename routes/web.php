@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\TrelloController;
+use App\Http\Controllers\StatutController;
 
 
 
@@ -64,3 +65,6 @@ Route::get('/profiles/{id}/edit', [ProfilController::class, 'edit'])
 
 Route::put('/profiles/{id}', [ProfilController::class, 'update'])
     ->name('profiles.update');
+
+//Create statut
+Route::resource('statuts', StatutController::class);
