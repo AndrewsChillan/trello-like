@@ -21,7 +21,8 @@
 @if(isset($projects))
 @foreach ($projects as $project)
     
-        <section class="project" style="background-image: url('{{ asset('image/' . $project->image_path)}}')";>
+        <section class="project" style="background-image: url('{{ asset('image/' . $project->image_path)}}'); background-size: contain;
+}";>
             <h2>
                 <form action="{{ route('trellos.update', $project->id) }}" method="POST">
                     @csrf
@@ -30,11 +31,8 @@
                     <p><input class="inputProjectTitle" type="text" name="title" value="{{ $project->title }}"></p>
                 </form>
             </h2>
-
-            <p>Project n°{{ $project->id}}</p>
-            <p>Date de création: {{ $project->created_at }}</p>
-            <p>Dernière modification: {{ $project->updated_at }}</p>
-            
+           <br>
+           <br>
             {{-- <p><a href="{{ route('trellos.show', ['id' => $project->id]) }}">Afficher</a></p> --}}
             <p>
             <a class="btn btn-primary" href="{{ route('trellos.show', $project->id) }}" role="button">Afficher</a>
