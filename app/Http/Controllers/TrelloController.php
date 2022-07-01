@@ -50,25 +50,28 @@ class TrelloController extends Controller
             'image_path' => $newImageName
         ];
 
-        // $statut1 =[
-        //     "statut" => 'A faire',
-        //     "project_id" => ($project = $this->id)        
-        // ];
-        // $statut2 =[
-        //     "statut" => 'En cours',
-        //     "project_id" => ($project = $this->id)  
-        // ];
-        // $statut3 =[
-        //     "statut" => 'Terminé', 
-        //     "project_id" => ($project = $this->id) 
-        // ];
+        
+        $newProject = Project::create($project);
 
-        // // création de la nouvelle ligne avec les nouvelles data
-        // // dans la table projets
-        Project::create($project);
-        // Statut::create($statut1);
-        // Statut::create($statut2);
-        // Statut::create($statut3);
+        $statut1 =[
+            "statut" => 'A faire',
+            "project_id" => $newProject->id,    
+        ];
+        $statut2 =[
+            "statut" => 'En cours',
+            "project_id" => $newProject->id,
+        ];
+        $statut3 =[
+            "statut" => 'Terminé', 
+            "project_id" => $newProject->id 
+        ];
+
+        // création de la nouvelle ligne avec les nouvelles data
+        // dans la table projets
+       
+        Statut::create($statut1);
+        Statut::create($statut2);
+        Statut::create($statut3);
 
 
         // redirection vers la page index

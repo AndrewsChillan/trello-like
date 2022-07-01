@@ -23,7 +23,7 @@
     
         <section class="project" style="background-image: url('{{ asset('image/' . $project->image_path)}}')";>
             <h2>
-                <form action="{{ route('trellos.update', ['id' => $project->id]) }}" method="POST">
+                <form action="{{ route('trellos.update', $project->id) }}" method="POST">
                     @csrf
 
                     @method('put')
@@ -37,9 +37,9 @@
             
             {{-- <p><a href="{{ route('trellos.show', ['id' => $project->id]) }}">Afficher</a></p> --}}
             <p>
-            <a class="btn btn-primary" href="{{ route('trellos.show', ['id' => $project->id]) }}" role="button">Afficher</a>
+            <a class="btn btn-primary" href="{{ route('trellos.show', $project->id) }}" role="button">Afficher</a>
             
-            <form action="{{ route('trellos.destroy', ['id' => $project->id]) }}" method="post">
+            <form action="{{ route('trellos.destroy', $project->id) }}" method="post">
             @csrf
             @method('delete')
             <button type="submit" class="btn btn-danger">Supprimer</button>
