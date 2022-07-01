@@ -3,6 +3,10 @@
 @section('content')
     {{-- En attendant le style final --}}
     <style>
+        body {
+            background-image: url('{{ asset('image/' . $project->image_path)}}');
+            
+        }
         h3{
             text-transform: capitalize;
         }
@@ -56,11 +60,9 @@
     </style>
     <section class="containerStatuts">
         @foreach ($statuts as $indexStatut => $statut)
-        
-        
-            <article class="statutOfProject">  
-                <h3>{{ $statut->project_id }}</h3>
-                <div class="containerCards">
+        <article class="statutOfProject">  
+            <h3>{{ $statut->project_id }}</h3>
+            <div class="containerCards">
 
                     @foreach ($statut->cards as $indexCard => $card)
                     <div class="cardOfStatut">
@@ -125,7 +127,7 @@
                             </div>
                         </div>
                     </div>
+                  
         @endforeach
     </section>
-
 @endsection

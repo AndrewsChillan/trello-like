@@ -13,14 +13,14 @@ class ProjectController extends Controller
 
 
     public function store(Request $request, $statut)
-    {
+    {   
         $card = [
             'content' => $request->input('new_card'),
             'statut_id' => $request->input('id_statut')
         ];
 
-        Card::create($card);
-
+       $cardA= Card::create($card);
+        $cardA->id;
         return redirect()->route('trellos.show', $statut);
     }
 

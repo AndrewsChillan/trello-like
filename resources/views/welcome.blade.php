@@ -18,11 +18,10 @@
 @auth
 @section('projects-display')
 
-   
-    @if(isset($projects))
-    @foreach ($projects as $project)
+@if(isset($projects))
+@foreach ($projects as $project)
     
-        <section class="project">
+        <section class="project" style="background-image: url('{{ asset('image/' . $project->image_path)}}')";>
             <h2>
                 <form action="{{ route('trellos.update', ['id' => $project->id]) }}" method="POST">
                     @csrf
