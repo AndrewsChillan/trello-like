@@ -15,7 +15,7 @@
         button{
             background: white;
             border: 2px solid blue;
-            border-radius: 5px
+            border-radius: 5px;
         }
         button:hover{
             background: blue;
@@ -28,6 +28,7 @@
             display: flex;
             gap: 2%;
             padding: 3%;
+            align-items: flex-start;
         }
         .statutOfProject {
             width: 20%;
@@ -69,7 +70,7 @@
 
                         <span>{{$card->content}}</span>
         
-                        <div>
+                        <div style="display: flex; gap: 5px;">
                             <button type="button" data-bs-toggle="modal" data-bs-target="#modalModifier-<?= $card->id ?>">M</button>
                             <form action="{{ route('projects.destroy.id', ['id' => $card->id, 'project' => $project->id]) }}" method="post">
                             @csrf
@@ -88,7 +89,7 @@
                                     </div>
                                     <div class="modal-body">
 
-                                        <form id="formEditCard" action="{{route('projects.update',[$project->id])}}" method="post">
+                                        <form id="formEditCard" action="{{route('projects.update',$project->id)}}" method="post">
                                             @csrf
                                             @method('put')
                                             <input type="text" name="content_card" value="{{ $statut->cards[$indexCard]->content ?? '' }}" placeholder="Contenu"> 
@@ -122,9 +123,7 @@
                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    
                                   <form action="{{route('projects.store.id', [$project->id])}}" method="post">
-                                  
                                         @csrf
                                         <input type="text" name="new_card" placeholder="Contenu">
                                         <select name="statut_ajout_card">
