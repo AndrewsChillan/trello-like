@@ -34,7 +34,7 @@ class TrelloController extends Controller
         // Validation de formulaire avant envoie dans la BDD
         $request->validate([
             'title' => 'required',
-            'image' => 'required|mimes:jpg,png,jpeg'
+            'image' => 'mimes:jpg,png,jpeg'
         ]);
 
         $newImageName = time() . '-' . $request->title . '.' . 

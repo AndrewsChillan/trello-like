@@ -32,7 +32,7 @@ input {
 }
 
 .inputProjectTitle {
-    background-color: #c3eeff;
+        border-radius: 20px;;
 }
 
 .inputProjectTitle:focus {
@@ -49,3 +49,8 @@ input {
     margin-top: 8rem;
 }
 
+.projectContent{
+background: #ffffffc9;
+border-radius: 20px;
+
+}
