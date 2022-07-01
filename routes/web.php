@@ -15,9 +15,6 @@ Route::get('/', [TrelloController::class, 'index'])
 
 Auth::routes();
 
-// Route::get('/home', [HomeController::class, 'index'])->name('home');
-
-
 // Route TRELLOS
 Route::resource('trellos', TrelloController::class);
 
