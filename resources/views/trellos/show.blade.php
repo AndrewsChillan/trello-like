@@ -1,3 +1,5 @@
+<?php use App\Models\Card; ?>
+
 @extends('layouts.layout-trello')
 
 @section('content')
@@ -91,14 +93,14 @@
                                             @method('put')
                                             <input type="text" name="content_card" value="{{ $statut->cards[$indexCard]->content ?? '' }}" placeholder="Contenu"> 
                                             <select name="statut_modif_card">
-                                                <option value=1 <?php if ($card->statut_id == 1) echo "selected"; ?>>À faire</option>
-                                                <option value=2 <?php if ($card->statut_id == 2) echo "selected"; ?>>En cours</option>
-                                                <option value=3 <?php if ($card->statut_id == 3) echo "selected"; ?>>Terminée</option>
+                                                @foreach ($project->statuts as $value)
+                                                <option value={{$value->id}} <?php if ($card->statut_id == $value->id) echo "selected"; ?>>{{$value->statut}}</option>
+                                                @endforeach
                                             </select>
                                             <input type="hidden" name="id_card" value="{{$card->id}}">   
                                             <button type="submit">Enregistrer</button>
                                         </form>
-
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -120,7 +122,9 @@
                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
+                                    
                                   <form action="{{route('projects.store.id', [$project->id])}}" method="post">
+                                  
                                         @csrf
                                         <input type="text" name="new_card" placeholder="Contenu">
                                         <select name="statut_ajout_card">
