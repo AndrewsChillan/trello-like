@@ -12,8 +12,7 @@ class ProjectController extends Controller
 {
 
 
-    public function store(Request $request, $statut)
-    {   
+    public function store(Request $request, $statut) 
     {
         // Validation de formulaire avant envoie dans la BDD
         // $request->validate([
