@@ -90,6 +90,11 @@
                                             @csrf
                                             @method('put')
                                             <input type="text" name="content_card" value="{{ $statut->cards[$indexCard]->content ?? '' }}" placeholder="Contenu"> 
+                                            <select name="statut_modif_card">
+                                                <option value=1 <?php if ($card->statut_id == 1) echo "selected"; ?>>À faire</option>
+                                                <option value=2 <?php if ($card->statut_id == 2) echo "selected"; ?>>En cours</option>
+                                                <option value=3 <?php if ($card->statut_id == 3) echo "selected"; ?>>Terminée</option>
+                                            </select>
                                             <input type="hidden" name="id_card" value="{{$card->id}}">   
                                             <button type="submit">Enregistrer</button>
                                         </form>
@@ -117,7 +122,12 @@
                                 <div class="modal-body">
                                   <form action="{{route('projects.store.id', [$project->id])}}" method="post">
                                         @csrf
-                                        <input type="text" name="new_card" placeholder="Contenu">  
+                                        <input type="text" name="new_card" placeholder="Contenu">
+                                        <select name="statut_ajout_card">
+                                            <option value=1>À faire</option>
+                                            <option value=2>En cours</option>
+                                            <option value=3>Terminée</option>
+                                        </select>
                                         <input type="hidden" name="id_statut" value="{{ $statut->id }}"> 
                                         <button type="submit">Créer</button>
                                     </form>

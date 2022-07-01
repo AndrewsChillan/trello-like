@@ -17,11 +17,12 @@ class ProjectController extends Controller
         // Validation de formulaire avant envoie dans la BDD
         $request->validate([
             'new_card' => 'required|string',
+            'statut_ajout_card' => 'required|integer'
         ]);
 
         $card = [
             'content' => $request->input('new_card'),
-            'statut_id' => $request->input('id_statut')
+            'statut_id' => $request->input('statut_ajout_card')
         ];
 
         Card::create($card);
@@ -35,11 +36,13 @@ class ProjectController extends Controller
         // Validation de formulaire avant envoie dans la BDD
         $request->validate([
             'content_card' => 'required|string',
+            'statut_modif_card' => 'required|integer'
         ]);
 
         $project = $id;
         $card = Card::find($request->id_card);
         $card->content = $request->input('content_card');
+        $card->statut_id = $request->input('statut_modif_card');
         $card->save();
 
         return redirect()->route('trellos.show', $project);
