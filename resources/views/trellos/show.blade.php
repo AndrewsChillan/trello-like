@@ -67,7 +67,7 @@
     <section class="containerStatuts">
         @foreach ($statuts as $indexStatut => $statut)
         <article class="statutOfProject">  
-            <h3>{{ $statut->project_id }}</h3>
+            <h3>{{ $statut->statut }}</h3>
             <div class="containerCards">
 
                     @foreach ($statut->cards as $indexCard => $card)

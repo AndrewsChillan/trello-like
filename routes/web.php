@@ -53,8 +53,9 @@ Route::resource('trellos', TrelloController::class);
 //     ->name('trellos.destroy');
 
 
-/* xxxxxxx PROJECTS xxxxxxx */
 
+
+/* xxxxxxx PROJECTS xxxxxxx */
 
 Route::resource('projects', ProjectController::class);
 
@@ -63,6 +64,8 @@ Route::delete('/projects/{id}/{project}', [ProjectController::class, 'destroy'])
 
 Route::post('/projects/{statut}', [ProjectController::class, 'store'])
     ->name('projects.store.id');
+
+
 
 
 // MAJ Profil
