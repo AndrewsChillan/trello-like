@@ -30,18 +30,24 @@ class TrelloController extends Controller
 
     public function store(Request $request)
     {
-
+        
         // Validation de formulaire avant envoie dans la BDD
         $request->validate([
-            'title' => 'required|string|max:50',
-
+            'title' => 'required',
+            'image' => 'required|mimes:jpg,png,jpeg'
         ]);
+
+        $newImageName = time() . '-' . $request->title . '.' . 
+        $request->image->extension();
+        
+        $request->image->move(public_path('image'), $newImageName);
 
         // Remplissage (préparation) de la table projets en BDD
         // ("colonne" => nouvelle data)
         $project = [
             "title" => $request->title,
             'user_id' => Auth::user()->id,
+            'image_path' => $newImageName
         ];
 
         
@@ -77,7 +83,7 @@ class TrelloController extends Controller
     {
         $project = Project::with('statuts.cards')->find($id);
         $statuts = $project->statuts;
-
+        $statut = Statut::with('project_id')->find($id);
         return view('trellos.show', compact('statuts', 'project'));
     }
 
