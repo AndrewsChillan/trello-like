@@ -61,6 +61,9 @@
             justify-content: space-between;
         }
     </style>
+    
+        
+    
     <section class="containerStatuts">
         @foreach ($statuts as $indexStatut => $statut)
         <article class="statutOfProject">  
@@ -68,6 +71,7 @@
             <div class="containerCards">
 
                     @foreach ($statut->cards as $indexCard => $card)
+                    
                     <div class="cardOfStatut">
 
                         <span>{{$card->content}}</span>
@@ -110,6 +114,7 @@
                         </div>
 
                     </div>
+                    
                     @endforeach
 
                 </div>
@@ -129,9 +134,9 @@
                                         @csrf
                                         <input type="text" name="new_card" placeholder="Contenu">
                                         <select name="statut_ajout_card">
-                                            <option value=1>À faire</option>
-                                            <option value=2>En cours</option>
-                                            <option value=3>Terminée</option>
+                                            @foreach ($project->statuts as $value)
+                                                <option value={{$value->id}} <?php if ($value->statut == $statut->statut) echo "selected"; ?>>{{$statut->statut}}</option>
+                                            @endforeach
                                         </select>
                                         <input type="hidden" name="id_statut" value="{{ $statut->id }}"> 
                                         <button type="submit">Créer</button>
