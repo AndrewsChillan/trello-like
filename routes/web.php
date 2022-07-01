@@ -14,9 +14,9 @@ Route::get('/', [TrelloController::class, 'index'])
 
 Auth::routes();
 
+
 // Route TRELLOS
 Route::resource('trellos', TrelloController::class);
-
 
 
 // Route PROJECTS
