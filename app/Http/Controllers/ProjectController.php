@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CardRequest;
-use App\Models\Project;
 use App\Models\Card;
 
 use Illuminate\Http\Request;
@@ -16,10 +14,10 @@ class ProjectController extends Controller
     {
 
         // Validation de formulaire avant envoie dans la BDD
-        // $request->validate([
-        //     'new_card' => 'required|string',
-        //     'statut_ajout_card' => 'required|integer'
-        // ]);
+        $request->validate([
+            'new_card' => 'required|string',
+            'statut_ajout_card' => 'required|integer'
+        ]);
 
         $card = [
             'content' => $request->input('new_card'),

@@ -10,52 +10,20 @@ use App\Http\Controllers\StatutController;
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-})
-    ->name('welcome');
+Route::get('/', [TrelloController::class, 'index'])
+    ->name('trellos.index');
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+// Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 // Route TRELLOS
 Route::resource('trellos', TrelloController::class);
 
-// Index - Route d'affichage de tous les projets
-// Route::get('/trellos', [TrelloController::class, 'index'])
-//     ->name('trellos.index');
 
 
-// Create
-// Route::get('/trellos/create', [TrelloController::class, 'create'])
-//     ->name('trellos.create');
-
-// Store
-// Route::post('/trellos', [TrelloController::class, 'store'])
-//     ->name('trellos.store');
-
-// Show
-// Route::get('/trellos/{id}', [TrelloController::class, 'show'])
-//     ->name('trellos.show');
-
-// Edit
-// Route::get('/trellos/{id}/edit', [TrelloController::class, 'edit'])
-//     ->name('trellos.edit');
-
-// Update
-// Route::put('/trellos/{id}', [TrelloController::class, 'update'])
-//     ->name('trellos.update');
-
-// Destroy
-// Route::delete('/trellos/{id}', [TrelloController::class, 'destroy'])
-//     ->name('trellos.destroy');
-
-
-
-
-/* xxxxxxx PROJECTS xxxxxxx */
+// Route PROJECTS
 
 Route::resource('projects', ProjectController::class);
 
@@ -67,8 +35,8 @@ Route::post('/projects/{statut}', [ProjectController::class, 'store'])
 
 
 
+// ROUTE PROFILES
 
-// MAJ Profil
 Route::get('/profiles/{id}/edit', [ProfilController::class, 'edit'])
     ->name('profiles.edit');
 

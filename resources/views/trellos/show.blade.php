@@ -62,8 +62,6 @@
         }
     </style>
     
-        
-    
     <section class="containerStatuts">
         @foreach ($statuts as $indexStatut => $statut)
         <article class="statutOfProject">  

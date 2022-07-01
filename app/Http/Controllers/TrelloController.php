@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use App\Models\User;
 use App\Models\Project;
 use App\Models\Statut;
-use App\Models\Card;
+
 
 
 
@@ -85,7 +84,6 @@ class TrelloController extends Controller
     {
         $project = Project::with('statuts.cards')->find($id);
         $statuts = $project->statuts;
-        // $statut = Statut::with('project_id')->find($id);
         return view('trellos.show', compact('statuts', 'project'));
     }
 
