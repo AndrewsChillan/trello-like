@@ -49,6 +49,8 @@
             gap: 2%;
             padding: 3%;
             align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 50px;
         }
         .statutOfProject {
             width: 20%;
