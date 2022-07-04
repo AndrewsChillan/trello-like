@@ -11,9 +11,6 @@
 @endsection
 
 
-
-
-
 {{-- Récupération des données BDD pour la table projets --}}
 @auth
 @section('projects-display')
@@ -21,8 +18,7 @@
 @if(isset($projects))
 @foreach ($projects as $project)
     
-        <section class="project" style="background-image: url('{{ asset('image/' . $project->image_path)}}'); background-size: cover; background-repeat: no-repeat;
-}";>
+        <section class="project" style="background-image: url('{{ asset('image/' . $project->image_path)}}'); background-size: cover; background-repeat: no-repeat;}";>
             <h2>
                 <form action="{{ route('trellos.update', $project->id) }}" method="POST">
                     @csrf
