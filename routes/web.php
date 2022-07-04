@@ -29,8 +29,13 @@ Route::delete('/projects/{id}/{project}', [ProjectController::class, 'destroy'])
 Route::post('/projects/{statut}', [ProjectController::class, 'store'])
     ->name('projects.store.id');
 
-Route::post('/projects/{project}', [ProjectController::class, 'ajoutListe'])
-    ->name('projects.ajoutList');
+Route::post('/projects/{test}/{project}', [ProjectController::class, 'addList'])
+    ->name('projects.addList');
+
+Route::delete('/projects/{statut_id}/{project}/{test}', [ProjectController::class, 'deleteList'])
+    ->name('projects.deletelist');
+
+
 
 // Route PROFILES
 
@@ -41,4 +46,3 @@ Route::put('/profiles/{id}', [ProfilController::class, 'update'])
     ->name('profiles.update');
 
 //Create statut
-Route::resource('statuts', StatutController::class);

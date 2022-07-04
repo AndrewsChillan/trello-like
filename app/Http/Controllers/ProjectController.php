@@ -11,8 +11,9 @@ class ProjectController extends Controller
 {
 
 
-    public function store(Request $request, $statut)
+    public function store(Request $request,  $statut)
     {
+
 
         // Validation de formulaire avant envoie dans la BDD
         $request->validate([
@@ -30,18 +31,18 @@ class ProjectController extends Controller
         return redirect()->route('trellos.show', $statut);
     }
 
-    public function ajoutList(Request $request, $project)
+
+    public function addList(Request $request, $test, $project)
     {
-        dd('cc');
+
         // Validation de formulaire avant envoie dans la BDD
         $request->validate([
             'new_statut' => 'required|string',
-            'project_id_new_statut' => 'required|integer'
         ]);
 
         $newStatut = [
             'statut' => $request->input('new_statut'),
-            'project_id' => $request->input('project_id_new_statut')
+            'project_id' => $project
         ];
 
         Statut::create($newStatut);
@@ -71,6 +72,13 @@ class ProjectController extends Controller
     {
         $card = Card::find($id);
         $card->delete();
+        return redirect()->route('trellos.show', $project);
+    }
+
+    public function deleteList($statut_id, $project)
+    {
+        $statut = Statut::find($statut_id);
+        $statut->delete();
         return redirect()->route('trellos.show', $project);
     }
 }
