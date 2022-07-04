@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Models\Statut;
-
+use App\Models\Comment;
 
 
 
@@ -77,6 +77,8 @@ class TrelloController extends Controller
 
         // redirection vers la page index
         return redirect()->route('trellos.index');
+
+        
     }
 
 

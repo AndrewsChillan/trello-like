@@ -62,6 +62,12 @@
             display: flex;
             justify-content: space-between;
         }
+        .toast-header {
+            background-image: url('{{ asset('image/' . $project->image_path)}}');
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+        }
     </style>
     
     <section class="containerStatuts">
@@ -84,6 +90,7 @@
                             <button type="submit">S</button>
                             </form>
                         </div>
+                                               
                         
                         <!-- Modal Modifier-->
                         <div class="modal fade" id="modalModifier-<?= $card->id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -107,7 +114,6 @@
                                             <input type="hidden" name="id_card" value="{{$card->id}}">   
                                             <button type="submit">Enregistrer</button>
                                         </form>
-                                        
                                     </div>
                                 </div>
                             </div>
@@ -116,9 +122,7 @@
                     </div>
                     
                     @endforeach
-
-                </div>
-                <button type="button" data-bs-toggle="modal" data-bs-target="#modalAjouter-<?= $statut->id ?>">Ajouter</button>
+                    
             </article>
 
             <!-- Modal Ajouter -->
@@ -144,17 +148,28 @@
         @endforeach
 
         {{-- AJOUTER NEW LIST --}}
+        <div class="row">
+            <div>
+                <button type="button" data-bs-toggle="modal" data-bs-target="#modalAjouterList-<?= $project->id ?>">Ajouter une liste</button>
+            </div>
+            <br/>
+            <br/>
+            
+            <!-- Button modal Commentaire -->
+            <div>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Commentaire
+            </button>
+            </div>
 
-        <button type="button" data-bs-toggle="modal" data-bs-target="#modalAjouterList-<?= $project->id ?>">Ajouter une liste</button>
-
-        <!-- Modal Ajouter Liste-->
-                    <div class="modal fade" id="modalAjouterList-<?= $project->id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <!-- Modal Ajouter Liste-->
+            <div class="modal fade" id="modalAjouterList-<?= $project->id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                  <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                     <h5 class="modal-title" id="exampleModalLabel">Ajouter une liste</h5>
                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
+                                    </div>
                                 <div class="modal-body">
                                   <form action="{{route('projects.ajoutList', $project->id)}}" method="post">
                                         @csrf
@@ -166,6 +181,53 @@
                             </div>
                         </div>
                     </div>
-
-    </section>
+                    
+                    
+                    
+                    
+                    
+                    <!-- Modal Commentaire-->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Commentaire</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    @forelse($project->comments as $comment)
+                                    <div class="card mb-2">
+                                        <div class="card-body">
+                                            {{ $comment->content }}
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <small>Posté le {{ $comment->created_at->format('d/m/Y à H:m') }}</small>
+                                                <span class="badge badge-primary">{{ $comment->user->name }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @empty
+                                    <div class="alert alert-info">Il n'y a pas de commentaire actuellement</div>
+                                    
+                                @endforelse
+                                        <form action="{{ route('comments.store', ['project'=>$project->id])}}" method="POST" class="mt-3">
+                                            @csrf
+                                            <div class="form-group">
+                                                <label for="content">Votre commentaire</label>
+                                                <textarea class="form-control @error('content') is-invalid @enderror" name="content" id="content"rows="5"></textarea>
+                                                
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Soumettre mon commentaire</button>
+                                        </form>
+                            </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>    
+                    
+                    
+                </div>
+                </section>
 @endsection

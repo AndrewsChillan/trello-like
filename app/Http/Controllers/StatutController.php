@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use App\Models\Project;
+use App\Models\Comment;
 use App\Models\Statut;
 use App\Models\Card;
 

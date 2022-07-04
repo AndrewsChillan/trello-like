@@ -34,7 +34,7 @@ input {
 }
 
 .inputProjectTitle {
-        border-radius: 20px;;
+    border-radius: 20px;
 }
 
 .inputProjectTitle:focus {
@@ -51,10 +51,9 @@ input {
     margin-top: 8rem;
 }
 
-.projectContent{
-background: #ffffffc9;
-border-radius: 20px;
-
+.projectContent {
+    background: #ffffffc9;
+    border-radius: 20px;
 }
 
 #addProject {
@@ -66,4 +65,3 @@ border-radius: 20px;
 .containerStatuts {
     justify-content: center;
 }
-

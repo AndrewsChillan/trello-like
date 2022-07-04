@@ -6,6 +6,7 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\TrelloController;
 use App\Http\Controllers\StatutController;
+use App\Http\Controllers\CommentController;
 
 
 
@@ -42,3 +43,7 @@ Route::put('/profiles/{id}', [ProfilController::class, 'update'])
 
 //Create statut
 Route::resource('statuts', StatutController::class);
+
+// Route commentaire
+Route::post('comments/{project}', [CommentController::class, 'store'])
+    ->name('comments.store');

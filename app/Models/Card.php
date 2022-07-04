@@ -14,4 +14,6 @@ class Card extends Model
     {
         return $this->belongsTo(Statut::class);
     }
+
+    
 }
