@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Project;
+use App\Models\Comment;
 use App\Models\Card;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -29,12 +29,12 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        
+        Card::factory()->count(50)->create();
 
-        Card::factory()->count(10)->create();
+        Comment::factory()->count(10)->create();
 
-        Card::factory()->count(10)->create([
-            'list_id' => 4
+        Comment::factory()->count(10)->create([
+            'poject_id' => 2
         ]);
     }
 }

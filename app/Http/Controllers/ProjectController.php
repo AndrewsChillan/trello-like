@@ -3,15 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Models\Card;
+use App\Models\Project;
 use App\Models\Statut;
+use App\Models\Comment;
 
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
 
+    public function show($id)
+    {
+        $project = Project::with('comments')->find($id);
 
-    public function store(Request $request,  $statut)
+        return view('trellos.show', compact('project'));
+    }
+
+
+    public function store(Request $request, $statut) 
     {
         // Validation de formulaire avant envoie dans la BDD
         $request->validate([

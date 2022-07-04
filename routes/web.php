@@ -6,6 +6,7 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\TrelloController;
 use App\Http\Controllers\StatutController;
+use App\Http\Controllers\CommentController;
 
 
 
@@ -37,19 +38,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/projects/{statut}', [ProjectController::class, 'store'])
         ->name('projects.store.id');
 
-    Route::post('/projects/{test}/{project}', [ProjectController::class, 'addList'])
-        ->name('projects.addList');
+//Create statut
+Route::resource('statuts', StatutController::class);
 
-    Route::delete('/projects/{statut_id}/{project}/{test}', [ProjectController::class, 'deleteList'])
-        ->name('projects.deletelist');
-
-
-
-    // Route PROFILES
-
-    Route::get('/profiles/{id}/edit', [ProfilController::class, 'edit'])
-        ->name('profiles.edit');
-
-    Route::put('/profiles/{id}', [ProfilController::class, 'update'])
-        ->name('profiles.update');
-});
+// Route commentaire
+Route::post('comments/{project}', [CommentController::class, 'store'])
+    ->name('comments.store');
