@@ -21,6 +21,20 @@
             border: 2px solid blue;
             border-radius: 5px;
         }
+
+        .formDeleteList{
+            position: relative;
+            top: 50px;
+            right: -100px;
+            margin-top: -60px;
+        }
+
+        .deleteList {
+            border-radius: 30px;
+            width: 30px;
+            
+        }
+
         button:hover{
             background: blue;
             border: 2px solid white;
@@ -65,12 +79,23 @@
     <section class="containerStatuts">
         @foreach ($statuts as $indexStatut => $statut)
         <article class="statutOfProject">  
+            @if ($statut->statut != 'A faire' && $statut->statut != 'En cours' && $statut->statut != 'Terminé')
+                <form class="formDeleteList" method="post" action="{{ route('projects.deletelist', ['statut_id' => $statut->id, 'project' => $project->id, 'test' => 'delete'])}}">
+                @csrf
+                @method('delete')
+                    <button class="deleteList">X</button>
+                </form>
+                
+            @endif
+            
             <h3>{{ $statut->statut }}</h3>
             <div class="containerCards">
 
                     @foreach ($statut->cards as $indexCard => $card)
                     
                     <div class="cardOfStatut">
+
+                        
 
                         <span>{{$card->content}}</span>
         
@@ -88,7 +113,7 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Modifier une tâche</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
@@ -124,11 +149,11 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                  <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Ajouter une tâche</h5>
                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                  <form action="{{route('projects.store.id', [$project->id])}}" method="post">
+                                  <form action="{{route('projects.store.id', $project->id)}}" method="post">
                                         @csrf
                                         <input type="text" name="new_card" placeholder="Contenu">
                                         <input type="hidden" name="id_statut" value="{{ $statut->id }}"> 
@@ -150,14 +175,13 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                  <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Ajouter une liste</h5>
                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                  <form action="{{route('projects.ajoutList', $project->id)}}" method="post">
+                                  <form action="{{ route('projects.addList', ['test' => 'statut', 'project' => $project->id]) }}" method="post">
                                         @csrf
                                         <input type="text" name="new_statut" placeholder="Nouvelle liste">
-                                        <input type="hidden" name="project_id_new_statut" value="{{ $project->id }}"> 
                                         <button type="submit">Créer</button>
                                     </form>
                                 </div>
