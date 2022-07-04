@@ -16,11 +16,11 @@
         }
         a {
             text-decoration: none;
-            color: blue;
+            color: #0d6efd;
         }
         button{
             background: white;
-            border: 2px solid blue;
+            border: 2px solid #0d6efd;
             border-radius: 5px;
         }
 
@@ -38,7 +38,7 @@
         }
 
         button:hover{
-            background: blue;
+            background: #0d6efd;
             border: 2px solid white;
         }
         button:hover a {
@@ -78,8 +78,34 @@
             display: flex;
             justify-content: space-between;
         }
+
+        #returnProject {
+            margin-top: 1rem;
+            margin-left: 1rem;
+        }
+
+        #returnProjectBtn {
+            background: white;
+            border: 2px solid #0d6efd;
+            border-radius: 5px;
+            color: #0d6efd;
+            padding: 5px;
+            
+        }
+
+        #returnProjectBtn:hover{
+            background: #0d6efd;
+            border: 2px solid white;
+            color: white;
+        }
+
     </style>
-    
+    <section id="returnProject">
+        <button type="button" id="returnProjectBtn"> <a  href="{{ route('trellos.index')}}"> < Mes projets</a></button>
+
+        
+    </section>
+
     <section class="containerStatuts">
         @foreach ($statuts as $indexStatut => $statut)
         <article class="statutOfProject">  
@@ -104,11 +130,11 @@
                         <span>{{$card->content}}</span>
         
                         <div style="display: flex; gap: 5px;">
-                            <button type="button" data-bs-toggle="modal" data-bs-target="#modalModifier-<?= $card->id ?>">M</button>
+                            <button id="statutBtn" type="button" data-bs-toggle="modal" data-bs-target="#modalModifier-<?= $card->id ?>"><i class="fa-solid fa-pen-to-square"></i></button>
                             <form action="{{ route('projects.destroy.id', ['id' => $card->id, 'project' => $project->id]) }}" method="post">
                             @csrf
                             @method('delete')
-                            <button type="submit">S</button>
+                            <button id="statutBtn" type="submit"><i class="fa-solid fa-trash-can"></i></button>
                             </form>
                         </div>
                         
@@ -125,7 +151,7 @@
                                         <form id="formEditCard" action="{{route('projects.update',$project->id)}}" method="post">
                                             @csrf
                                             @method('put')
-                                            <input type="text" name="content_card" value="{{ $statut->cards[$indexCard]->content ?? '' }}" placeholder="Contenu"> 
+                                            <input class="inputBg" type="text" name="content_card" value="{{ $statut->cards[$indexCard]->content ?? '' }}" placeholder="Contenu"> 
                                             <select name="statut_modif_card">
                                                 @foreach ($project->statuts as $value)
                                                 <option value={{$value->id}} <?php if ($card->statut_id == $value->id) echo "selected"; ?>>{{$value->statut}}</option>
@@ -145,7 +171,7 @@
                     @endforeach
 
                 </div>
-                <button type="button" data-bs-toggle="modal" data-bs-target="#modalAjouter-<?= $statut->id ?>">Ajouter</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAjouter-<?= $statut->id ?>">Ajouter</button>
             </article>
 
             <!-- Modal Ajouter -->
@@ -170,10 +196,11 @@
                   
         @endforeach
 
+        </section>
         {{-- AJOUTER NEW LIST --}}
-
-        <button type="button" data-bs-toggle="modal" data-bs-target="#modalAjouterList-<?= $project->id ?>">Ajouter une liste</button>
-
+        <section id="AddListBtn">
+        
+        <button type="button" class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#modalAjouterList-<?= $project->id ?>">Ajouter une liste</button>
         <!-- Modal Ajouter Liste-->
                     <div class="modal fade" id="modalAjouterList-<?= $project->id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
@@ -192,6 +219,6 @@
                             </div>
                         </div>
                     </div>
-
-    </section>
+        </section>
+    
 @endsection

@@ -9,7 +9,7 @@
     padding: 2rem;
     background-color: #00bfff42;
     margin: 1rem;
-    border-radius: 40px;
+    border-radius: 15px;
 }
 
 footer {
@@ -18,7 +18,16 @@ footer {
     width: 100%;
 }
 
-.profileForm {
+.profileBg {
+    
+    background-image: url('../image/bgProject.jpg');
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+}
+
+.profile {
     text-align: center;
     margin-top: 8rem;
     border: solid;
@@ -26,12 +35,18 @@ footer {
     width: fit-content;
     margin: auto;
     margin-top: 8rem;
+    background-color: white;
+    border-radius: 15px;
+    border: 2px solid #0d6efd;
+    width: 35%;
 }
 
 input {
     text-align: center;
     border: none;
+    
 }
+
 
 .inputProjectTitle {
         border-radius: 20px;;
@@ -49,6 +64,11 @@ input {
     width: fit-content;
     margin: auto;
     margin-top: 8rem;
+    background-color: white;
+    width: 35%;
+    border-radius: 15px;
+    border: 2px solid #0d6efd;
+}
 }
 
 .projectContent{
@@ -67,9 +87,75 @@ border-radius: 20px;
     justify-content: center;
 }
 
-#returnBtn {
+#returnLink {
 
     text-decoration: none;
     color: black;
 
 }
+
+#returnBtn:hover {
+
+    border: 2px solid #0d6efd;
+    color: white;
+}
+
+#navLinks {
+
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+
+}
+
+#navbarNav {
+    justify-content: end;
+}
+
+.navbar-text {
+    color: white;
+}
+
+body {
+    background-color: #f0f0f0;
+}
+
+#AddListBtn {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+
+}
+
+#statutBtn:hover {
+
+    color:white;
+
+}
+
+#bgProjectCreation {
+    
+    background-image: url('../image/bgProject.jpg');
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+}
+
+.inputBg {
+
+    background-color: #f0f0f0;
+    width: 55%;
+    height: 2.5rem;
+    border-radius: 5px;
+}
+
+#profilForm {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+

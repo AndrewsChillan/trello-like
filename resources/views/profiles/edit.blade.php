@@ -3,24 +3,26 @@
 @auth
     @section('profile-form')
 
-    <section class="profileForm">
-        <h1>Votre profil</h1>
-
-        <br>
+    <section class="profileBg">
+        
 
         {{-- Formulaire de modification de données Profil utilisateur --}}
     
         <section class="profile">
 
-            <form action="{{ route('profiles.update', ['id' => $profile->id]) }}" method="POST">
+            <h1>Votre profil</h1>
+
+            <br>
+
+            <form id="profilForm" action="{{ route('profiles.update', ['id' => $profile->id]) }}" method="POST">
             @csrf
 
             @method('put')
-            <p><input type="text" name="name" value="{{ $profile->name }}"></p>
-            <br>
-            <p><input type="text" name="email" value="{{ $profile->email }}"></p>
-            <br>
-            <p><button type="submit" class="btn btn-primary">Valider les modifications</button></p>
+            <input class="inputBg" type="text" name="name" value="{{ $profile->name }}">
+            
+            <input class="inputBg" type="text" name="email" value="{{ $profile->email }}">
+           
+            <button type="submit" class="btn btn-primary">Valider les modifications</button>
 
             
             
