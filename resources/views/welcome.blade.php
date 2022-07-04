@@ -2,13 +2,7 @@
         
 
 
-{{-- Bouton d'ajout de projet --}}
-@section('add-btn')
-<form id="addProject"  action="{{route('trellos.create')}}">
-<button type="submit" class="btn btn-primary">Ajouter un projet</button>
-</form>
 
-@endsection
 
 
 {{-- Récupération des données BDD pour la table projets --}}
@@ -46,6 +40,13 @@
 @endsection
 {{-- @endsection --}}
 
+{{-- Bouton d'ajout de projet --}}
+@section('add-btn')
+<form id="addProject"  action="{{route('trellos.create')}}">
+<button type="submit" class="btn btn-primary">Ajouter un projet</button>
+</form>
+
+@endsection
 
 
 @endauth
