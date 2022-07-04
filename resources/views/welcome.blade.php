@@ -18,7 +18,7 @@
                     @csrf
 
                     @method('put')
-                    <p><input class="inputProjectTitle" type="text" name="title" value="{{ $project->title }}"></p>
+                    <p><input style="text-transform: capitalize" class="inputProjectTitle" type="text" name="title" value="{{ $project->title }}"></p>
                 </form>
             </h2>
            <br>
@@ -48,6 +48,7 @@
 
 @endsection
 
+{{-- Faire page pour les deconnectés --}}
 
 @endauth
             
