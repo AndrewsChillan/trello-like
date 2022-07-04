@@ -19,8 +19,7 @@ a {
 }
 
 footer {
-    position: absolute;
-    bottom: 0;
+    position: unset;
     width: 100%;
 }
 
@@ -38,7 +37,6 @@ footer {
     margin-top: 8rem;
     border: solid;
     padding: 4rem;
-    width: fit-content;
     margin: auto;
     margin-top: 8rem;
     background-color: white;
@@ -164,4 +162,38 @@ body {
     gap: 30px;
 }
 
+.log {
+    margin: 6% auto;
+    background-color: white;
+    border-radius: 15px;
+    border: 2px solid #0d6efd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 3% 0%;
+    width: 40%;
+}
 
+.log form {
+    width: 100%;
+}
+
+.log h2 {
+    color: #0858d0;
+}
+
+#formRegister {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 70%;
+}
+
+.divFormRegister{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

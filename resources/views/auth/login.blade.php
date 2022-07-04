@@ -1,13 +1,8 @@
 @extends('layouts.layout-trello')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Se connecter</div>
-
-                <div class="card-body">
+            <section class="log">
+                <h2>Se connecter</h2>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -65,9 +60,5 @@
                             </div>
                         </div>
                     </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+            </section>
 @endsection
