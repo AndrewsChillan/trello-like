@@ -13,21 +13,18 @@ class ProjectController extends Controller
 
     public function store(Request $request,  $statut)
     {
-
-
         // Validation de formulaire avant envoie dans la BDD
         $request->validate([
             'new_card' => 'required|string',
-            'statut_ajout_card' => 'required|integer'
+            'id_statut' => 'required|integer'
         ]);
 
         $card = [
             'content' => $request->input('new_card'),
-            'statut_id' => $request->input('statut_ajout_card')
+            'statut_id' => $request->input('id_statut')
         ];
 
-        $cardA = Card::create($card);
-        $cardA->id;
+        Card::create($card);
         return redirect()->route('trellos.show', $statut);
     }
 
