@@ -22,6 +22,7 @@
         <br>
 
         <p><button type="submit" class="btn btn-primary">Créer le projet</button></p>
+        <p><button class="btn btn-light"> <a id="returnBtn" href="{{ route('trellos.index')}}"> Retour</a></button></p>
     </form>    
 @endsection
 
