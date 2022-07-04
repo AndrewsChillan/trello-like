@@ -29,9 +29,10 @@ Route::delete('/projects/{id}/{project}', [ProjectController::class, 'destroy'])
 Route::post('/projects/{statut}', [ProjectController::class, 'store'])
     ->name('projects.store.id');
 
+Route::post('/projects/{project}', [ProjectController::class, 'ajoutListe'])
+    ->name('projects.ajoutList');
 
-
-// ROUTE PROFILES
+// Route PROFILES
 
 Route::get('/profiles/{id}/edit', [ProfilController::class, 'edit'])
     ->name('profiles.edit');

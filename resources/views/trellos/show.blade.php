@@ -133,11 +133,6 @@
                                   <form action="{{route('projects.store.id', [$project->id])}}" method="post">
                                         @csrf
                                         <input type="text" name="new_card" placeholder="Contenu">
-                                        <select name="statut_ajout_card">
-                                            @foreach ($project->statuts as $value)
-                                                <option value={{$value->id}} <?php if ($value->statut == $statut->statut) echo "selected"; ?>>{{$statut->statut}}</option>
-                                            @endforeach
-                                        </select>
                                         <input type="hidden" name="id_statut" value="{{ $statut->id }}"> 
                                         <button type="submit">Créer</button>
                                     </form>
@@ -147,5 +142,30 @@
                     </div>
                   
         @endforeach
+
+        {{-- AJOUTER NEW LIST --}}
+
+        <button type="button" data-bs-toggle="modal" data-bs-target="#modalAjouterList-<?= $project->id ?>">Ajouter une liste</button>
+
+        <!-- Modal Ajouter Liste-->
+                    <div class="modal fade" id="modalAjouterList-<?= $project->id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                 <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  <form action="{{route('projects.ajoutList', $project->id)}}" method="post">
+                                        @csrf
+                                        <input type="text" name="new_statut" placeholder="Nouvelle liste">
+                                        <input type="hidden" name="project_id_new_statut" value="{{ $project->id }}"> 
+                                        <button type="submit">Créer</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
     </section>
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Card;
+use App\Models\Statut;
 
 use Illuminate\Http\Request;
 
@@ -27,6 +28,24 @@ class ProjectController extends Controller
         $cardA = Card::create($card);
         $cardA->id;
         return redirect()->route('trellos.show', $statut);
+    }
+
+    public function ajoutList(Request $request, $project)
+    {
+        dd('cc');
+        // Validation de formulaire avant envoie dans la BDD
+        $request->validate([
+            'new_statut' => 'required|string',
+            'project_id_new_statut' => 'required|integer'
+        ]);
+
+        $newStatut = [
+            'statut' => $request->input('new_statut'),
+            'project_id' => $request->input('project_id_new_statut')
+        ];
+
+        Statut::create($newStatut);
+        return redirect()->route('trellos.show', $project);
     }
 
 
