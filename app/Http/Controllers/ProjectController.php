@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CardRequest;
-use App\Models\Project;
 use App\Models\Card;
+use App\Models\Statut;
 
 use Illuminate\Http\Request;
 
@@ -14,20 +13,39 @@ class ProjectController extends Controller
 
     public function store(Request $request, $statut) 
     {
+
         // Validation de formulaire avant envoie dans la BDD
-        // $request->validate([
-        //     'new_card' => 'required|string',
-        //     'statut_ajout_card' => 'required|integer'
-        // ]);
+        $request->validate([
+            'new_card' => 'required|string',
+            'statut_ajout_card' => 'required|integer'
+        ]);
 
         $card = [
             'content' => $request->input('new_card'),
             'statut_id' => $request->input('statut_ajout_card')
         ];
 
-       $cardA= Card::create($card);
+        $cardA = Card::create($card);
         $cardA->id;
         return redirect()->route('trellos.show', $statut);
+    }
+
+    public function ajoutList(Request $request, $project)
+    {
+        dd('cc');
+        // Validation de formulaire avant envoie dans la BDD
+        $request->validate([
+            'new_statut' => 'required|string',
+            'project_id_new_statut' => 'required|integer'
+        ]);
+
+        $newStatut = [
+            'statut' => $request->input('new_statut'),
+            'project_id' => $request->input('project_id_new_statut')
+        ];
+
+        Statut::create($newStatut);
+        return redirect()->route('trellos.show', $project);
     }
 
 

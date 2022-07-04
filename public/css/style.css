@@ -1,5 +1,7 @@
 .projectsContainer {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .project {
@@ -32,7 +34,7 @@ input {
 }
 
 .inputProjectTitle {
-    background-color: #c3eeff;
+        border-radius: 20px;;
 }
 
 .inputProjectTitle:focus {
@@ -47,5 +49,21 @@ input {
     width: fit-content;
     margin: auto;
     margin-top: 8rem;
+}
+
+.projectContent{
+background: #ffffffc9;
+border-radius: 20px;
+
+}
+
+#addProject {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.containerStatuts {
+    justify-content: center;
 }
 
