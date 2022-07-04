@@ -29,14 +29,20 @@
     <!--CSS-->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet"/>
 
+    <!--FONT AWESOME-->
+    <script
+      src="https://kit.fontawesome.com/7cdacc82b4.js"
+      crossorigin="anonymous"
+    ></script>
+    
     <title>TRELLO LIKE</title>
 </head>
 <body>
 
 <header>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary"; color: white;>
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ route('trellos.index')}}">Trello-Like</a>
+            <a class="navbar-brand" href="{{ route('trellos.index')}}"><strong>Trello-Like</strong></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -55,10 +61,10 @@
                                     @auth
                                         
                                     @else
-                                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+                                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Se connecter</a>
 
                                         @if (Route::has('register'))
-                                            <a href="{{ route('register') }}" class=" text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                                            <a href="{{ route('register') }}" class=" text-sm text-gray-700 dark:text-gray-500 underline">S'inscrire</a>
                                         @endif
                                     @endauth
                                 </div>
@@ -77,7 +83,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Se déconnecter') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -112,7 +118,7 @@
 </main>
 
 <footer>
-<nav class="navbar bg-light">
+<nav id="footerNav" class="navbar bg-primary">
   <div class="container-fluid" style="justify-content: center;">
  
         <span class="navbar-text">

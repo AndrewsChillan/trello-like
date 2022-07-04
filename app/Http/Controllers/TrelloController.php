@@ -10,13 +10,18 @@ use App\Models\Comment;
 
 
 
+
 class TrelloController extends Controller
 {
     public function index()
     {
         // récupération de toutes la table projets en passant par 
         // le Model / la classe "Projets" en connexion avec la BDD
-        $projects = Project::all();
+        $projects = null;
+        if (null !== Auth::user()) {
+            $projects = Project::where('user_id', Auth::user()->id)->get();
+        }
+
         return view('welcome', compact('projects'));
     }
 

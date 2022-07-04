@@ -16,15 +16,29 @@
         }
         a {
             text-decoration: none;
-            color: blue;
+            color: #0d6efd;
         }
         button{
             background: white;
-            border: 2px solid blue;
+            border: 2px solid #0d6efd;
             border-radius: 5px;
         }
+
+        .formDeleteList{
+            position: relative;
+            top: 50px;
+            right: -100px;
+            margin-top: -60px;
+        }
+
+        .deleteList {
+            border-radius: 30px;
+            width: 30px;
+            
+        }
+
         button:hover{
-            background: blue;
+            background: #0d6efd;
             border: 2px solid white;
         }
         button:hover a {
@@ -35,6 +49,8 @@
             gap: 2%;
             padding: 3%;
             align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 50px;
         }
         .statutOfProject {
             width: 20%;
@@ -62,17 +78,55 @@
             display: flex;
             justify-content: space-between;
         }
+<<<<<<< HEAD
         .toast-header {
             background-image: url('{{ asset('image/' . $project->image_path)}}');
             background-repeat: no-repeat;
             background-size: cover;
             
         }
+=======
+
+        #returnProject {
+            margin-top: 1rem;
+            margin-left: 1rem;
+        }
+
+        #returnProjectBtn {
+            background: white;
+            border: 2px solid #0d6efd;
+            border-radius: 5px;
+            color: #0d6efd;
+            padding: 5px;
+            
+        }
+
+        #returnProjectBtn:hover{
+            background: #0d6efd;
+            border: 2px solid white;
+            color: white;
+        }
+
+>>>>>>> ff172528c557dd1826914a599795e38694b91cd0
     </style>
-    
+    <section id="returnProject">
+        <button type="button" id="returnProjectBtn"> <a  href="{{ route('trellos.index')}}"> < Mes projets</a></button>
+
+        
+    </section>
+
     <section class="containerStatuts">
         @foreach ($statuts as $indexStatut => $statut)
         <article class="statutOfProject">  
+            @if ($statut->statut != 'A faire' && $statut->statut != 'En cours' && $statut->statut != 'Terminé')
+                <form class="formDeleteList" method="post" action="{{ route('projects.deletelist', ['statut_id' => $statut->id, 'project' => $project->id, 'test' => 'delete'])}}">
+                @csrf
+                @method('delete')
+                    <button class="deleteList">X</button>
+                </form>
+                
+            @endif
+            
             <h3>{{ $statut->statut }}</h3>
             <div class="containerCards">
 
@@ -80,14 +134,16 @@
                     
                     <div class="cardOfStatut">
 
+                        
+
                         <span>{{$card->content}}</span>
         
                         <div style="display: flex; gap: 5px;">
-                            <button type="button" data-bs-toggle="modal" data-bs-target="#modalModifier-<?= $card->id ?>">M</button>
+                            <button id="statutBtn" type="button" data-bs-toggle="modal" data-bs-target="#modalModifier-<?= $card->id ?>"><i class="fa-solid fa-pen-to-square"></i></button>
                             <form action="{{ route('projects.destroy.id', ['id' => $card->id, 'project' => $project->id]) }}" method="post">
                             @csrf
                             @method('delete')
-                            <button type="submit">S</button>
+                            <button id="statutBtn" type="submit"><i class="fa-solid fa-trash-can"></i></button>
                             </form>
                         </div>
                                                
@@ -97,7 +153,7 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Modifier une tâche</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
@@ -105,7 +161,7 @@
                                         <form id="formEditCard" action="{{route('projects.update',$project->id)}}" method="post">
                                             @csrf
                                             @method('put')
-                                            <input type="text" name="content_card" value="{{ $statut->cards[$indexCard]->content ?? '' }}" placeholder="Contenu"> 
+                                            <input class="inputBg" type="text" name="content_card" value="{{ $statut->cards[$indexCard]->content ?? '' }}" placeholder="Contenu"> 
                                             <select name="statut_modif_card">
                                                 @foreach ($project->statuts as $value)
                                                 <option value={{$value->id}} <?php if ($card->statut_id == $value->id) echo "selected"; ?>>{{$value->statut}}</option>
@@ -123,6 +179,9 @@
                     
                     @endforeach
                     
+
+                </div>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAjouter-<?= $statut->id ?>">Ajouter</button>
             </article>
 
             <!-- Modal Ajouter -->
@@ -130,11 +189,11 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                  <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Ajouter une tâche</h5>
                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                  <form action="{{route('projects.store.id', [$project->id])}}" method="post">
+                                  <form action="{{route('projects.store.id', $project->id)}}" method="post">
                                         @csrf
                                         <input type="text" name="new_card" placeholder="Contenu">
                                         <input type="hidden" name="id_statut" value="{{ $statut->id }}"> 
@@ -147,7 +206,9 @@
                   
         @endforeach
 
+        </section>
         {{-- AJOUTER NEW LIST --}}
+<<<<<<< HEAD
         <div class="row">
             <div>
                 <button type="button" data-bs-toggle="modal" data-bs-target="#modalAjouterList-<?= $project->id ?>">Ajouter une liste</button>
@@ -168,19 +229,30 @@
                             <div class="modal-content">
                                  <div class="modal-header">
                                      <h5 class="modal-title" id="exampleModalLabel">Ajouter une liste</h5>
+=======
+        <section id="AddListBtn">
+        
+        <button type="button" class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#modalAjouterList-<?= $project->id ?>">Ajouter une liste</button>
+        <!-- Modal Ajouter Liste-->
+                    <div class="modal fade" id="modalAjouterList-<?= $project->id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                 <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Ajouter une liste</h5>
+>>>>>>> ff172528c557dd1826914a599795e38694b91cd0
                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                 <div class="modal-body">
-                                  <form action="{{route('projects.ajoutList', $project->id)}}" method="post">
+                                  <form action="{{ route('projects.addList', ['test' => 'statut', 'project' => $project->id]) }}" method="post">
                                         @csrf
                                         <input type="text" name="new_statut" placeholder="Nouvelle liste">
-                                        <input type="hidden" name="project_id_new_statut" value="{{ $project->id }}"> 
                                         <button type="submit">Créer</button>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
+<<<<<<< HEAD
                     
                     
                     
@@ -230,4 +302,8 @@
                     
                 </div>
                 </section>
+=======
+        </section>
+    
+>>>>>>> ff172528c557dd1826914a599795e38694b91cd0
 @endsection

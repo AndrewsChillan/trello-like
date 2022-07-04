@@ -10,36 +10,33 @@ use App\Http\Controllers\CommentController;
 
 
 
+
 Route::get('/', [TrelloController::class, 'index'])
     ->name('trellos.index');
+
+
 
 Auth::routes();
 
 
-// Route TRELLOS
-Route::resource('trellos', TrelloController::class);
+Route::group(['middleware' => 'auth'], function () {
 
 
-// Route PROJECTS
 
-Route::resource('projects', ProjectController::class);
 
-Route::delete('/projects/{id}/{project}', [ProjectController::class, 'destroy'])
-    ->name('projects.destroy.id');
+    // Route TRELLOS
+    Route::resource('trellos', TrelloController::class);
 
-Route::post('/projects/{statut}', [ProjectController::class, 'store'])
-    ->name('projects.store.id');
 
-Route::post('/projects/{project}', [ProjectController::class, 'ajoutListe'])
-    ->name('projects.ajoutList');
+    // Route PROJECTS
 
-// Route PROFILES
+    Route::resource('projects', ProjectController::class);
 
-Route::get('/profiles/{id}/edit', [ProfilController::class, 'edit'])
-    ->name('profiles.edit');
+    Route::delete('/projects/{id}/{project}', [ProjectController::class, 'destroy'])
+        ->name('projects.destroy.id');
 
-Route::put('/profiles/{id}', [ProfilController::class, 'update'])
-    ->name('profiles.update');
+    Route::post('/projects/{statut}', [ProjectController::class, 'store'])
+        ->name('projects.store.id');
 
 //Create statut
 Route::resource('statuts', StatutController::class);

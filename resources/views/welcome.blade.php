@@ -2,15 +2,6 @@
         
 
 
-{{-- Bouton d'ajout de projet --}}
-@section('add-btn')
-<form id="addProject"  action="{{route('trellos.create')}}">
-<button type="submit" class="btn btn-primary">Ajouter un projet</button>
-</form>
-
-@endsection
-
-
 
 
 
@@ -21,14 +12,13 @@
 @if(isset($projects))
 @foreach ($projects as $project)
     
-        <section class="project" style="background-image: url('{{ asset('image/' . $project->image_path)}}'); background-size: cover; background-repeat: no-repeat;
-}";>
+        <section class="project" style="background-image: url('{{ asset('image/' . $project->image_path)}}'); background-size: cover; background-repeat: no-repeat;}";>
             <h2>
                 <form action="{{ route('trellos.update', $project->id) }}" method="POST">
                     @csrf
 
                     @method('put')
-                    <p><input class="inputProjectTitle" type="text" name="title" value="{{ $project->title }}"></p>
+                    <p><input style="text-transform: capitalize" class="inputProjectTitle" type="text" name="title" value="{{ $project->title }}"></p>
                 </form>
             </h2>
            <br>
@@ -50,7 +40,15 @@
 @endsection
 {{-- @endsection --}}
 
+{{-- Bouton d'ajout de projet --}}
+@section('add-btn')
+<form id="addProject"  action="{{route('trellos.create')}}">
+<button type="submit" class="btn btn-primary">Ajouter un projet</button>
+</form>
 
+@endsection
+
+{{-- Faire page pour les deconnectés --}}
 
 @endauth
             
