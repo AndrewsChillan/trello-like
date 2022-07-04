@@ -55,10 +55,10 @@
                                     @auth
                                         
                                     @else
-                                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+                                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Se connecter</a>
 
                                         @if (Route::has('register'))
-                                            <a href="{{ route('register') }}" class=" text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                                            <a href="{{ route('register') }}" class=" text-sm text-gray-700 dark:text-gray-500 underline">S'inscrire</a>
                                         @endif
                                     @endauth
                                 </div>
@@ -77,7 +77,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Se déconnecter') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

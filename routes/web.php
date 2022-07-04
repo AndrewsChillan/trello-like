@@ -9,40 +9,47 @@ use App\Http\Controllers\StatutController;
 
 
 
+
 Route::get('/', [TrelloController::class, 'index'])
     ->name('trellos.index');
+
+
 
 Auth::routes();
 
 
-// Route TRELLOS
-Route::resource('trellos', TrelloController::class);
-
-
-// Route PROJECTS
-
-Route::resource('projects', ProjectController::class);
-
-Route::delete('/projects/{id}/{project}', [ProjectController::class, 'destroy'])
-    ->name('projects.destroy.id');
-
-Route::post('/projects/{statut}', [ProjectController::class, 'store'])
-    ->name('projects.store.id');
-
-Route::post('/projects/{test}/{project}', [ProjectController::class, 'addList'])
-    ->name('projects.addList');
-
-Route::delete('/projects/{statut_id}/{project}/{test}', [ProjectController::class, 'deleteList'])
-    ->name('projects.deletelist');
+Route::group(['middleware' => 'auth'], function () {
 
 
 
-// Route PROFILES
 
-Route::get('/profiles/{id}/edit', [ProfilController::class, 'edit'])
-    ->name('profiles.edit');
+    // Route TRELLOS
+    Route::resource('trellos', TrelloController::class);
 
-Route::put('/profiles/{id}', [ProfilController::class, 'update'])
-    ->name('profiles.update');
 
-//Create statut
+    // Route PROJECTS
+
+    Route::resource('projects', ProjectController::class);
+
+    Route::delete('/projects/{id}/{project}', [ProjectController::class, 'destroy'])
+        ->name('projects.destroy.id');
+
+    Route::post('/projects/{statut}', [ProjectController::class, 'store'])
+        ->name('projects.store.id');
+
+    Route::post('/projects/{test}/{project}', [ProjectController::class, 'addList'])
+        ->name('projects.addList');
+
+    Route::delete('/projects/{statut_id}/{project}/{test}', [ProjectController::class, 'deleteList'])
+        ->name('projects.deletelist');
+
+
+
+    // Route PROFILES
+
+    Route::get('/profiles/{id}/edit', [ProfilController::class, 'edit'])
+        ->name('profiles.edit');
+
+    Route::put('/profiles/{id}', [ProfilController::class, 'update'])
+        ->name('profiles.update');
+});
