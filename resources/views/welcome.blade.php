@@ -4,7 +4,7 @@
 
 {{-- Bouton d'ajout de projet --}}
 @section('add-btn')
-<form  action="{{route('trellos.create')}}">
+<form id="addProject"  action="{{route('trellos.create')}}">
 <button type="submit" class="btn btn-primary">Ajouter un projet</button>
 </form>
 
@@ -21,7 +21,7 @@
 @if(isset($projects))
 @foreach ($projects as $project)
     
-        <section class="project" style="background-image: url('{{ asset('image/' . $project->image_path)}}'); background-size: contain;
+        <section class="project" style="background-image: url('{{ asset('image/' . $project->image_path)}}'); background-size: cover; background-repeat: no-repeat;
 }";>
             <h2>
                 <form action="{{ route('trellos.update', $project->id) }}" method="POST">
