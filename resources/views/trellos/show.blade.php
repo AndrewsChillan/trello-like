@@ -7,6 +7,8 @@
     <style>
         body {
             background-image: url('{{ asset('image/' . $project->image_path)}}');
+            background-repeat: no-repeat;
+            background-size: cover;
             
         }
         h3{
