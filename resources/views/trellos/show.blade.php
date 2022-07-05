@@ -135,7 +135,7 @@
 
                         <span>{{$card->content}}</span>
         
-                        <div style="display: flex; gap: 5px;">
+                        <div style="display: flex; gap: 5px;align-items:flex-start;">
                             <button id="statutBtn" type="button" data-bs-toggle="modal" data-bs-target="#modalModifier-<?= $card->id ?>"><i class="fa-solid fa-pen-to-square"></i></button>
                             <form action="{{ route('projects.destroy.id', ['id' => $card->id, 'project' => $project->id]) }}" method="post">
                             @csrf
