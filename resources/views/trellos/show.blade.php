@@ -78,14 +78,12 @@
             display: flex;
             justify-content: space-between;
         }
-<<<<<<< HEAD
         .toast-header {
             background-image: url('{{ asset('image/' . $project->image_path)}}');
             background-repeat: no-repeat;
             background-size: cover;
             
         }
-=======
 
         #returnProject {
             margin-top: 1rem;
@@ -107,7 +105,6 @@
             color: white;
         }
 
->>>>>>> ff172528c557dd1826914a599795e38694b91cd0
     </style>
     <section id="returnProject">
         <button type="button" id="returnProjectBtn"> <a  href="{{ route('trellos.index')}}"> < Mes projets</a></button>
@@ -208,8 +205,8 @@
 
         </section>
         {{-- AJOUTER NEW LIST --}}
-<<<<<<< HEAD
         <div class="row">
+            <div style="display: flex; align-items: center; flex-direction: column;">
             <div>
                 <button type="button" data-bs-toggle="modal" data-bs-target="#modalAjouterList-<?= $project->id ?>">Ajouter une liste</button>
             </div>
@@ -222,6 +219,7 @@
                 Commentaire
             </button>
             </div>
+            </div>
 
             <!-- Modal Ajouter Liste-->
             <div class="modal fade" id="modalAjouterList-<?= $project->id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -229,17 +227,6 @@
                             <div class="modal-content">
                                  <div class="modal-header">
                                      <h5 class="modal-title" id="exampleModalLabel">Ajouter une liste</h5>
-=======
-        <section id="AddListBtn">
-        
-        <button type="button" class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#modalAjouterList-<?= $project->id ?>">Ajouter une liste</button>
-        <!-- Modal Ajouter Liste-->
-                    <div class="modal fade" id="modalAjouterList-<?= $project->id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Ajouter une liste</h5>
->>>>>>> ff172528c557dd1826914a599795e38694b91cd0
                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                 <div class="modal-body">
@@ -252,12 +239,7 @@
                             </div>
                         </div>
                     </div>
-<<<<<<< HEAD
-                    
-                    
-                    
-                    
-                    
+
                     <!-- Modal Commentaire-->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
@@ -302,8 +284,4 @@
                     
                 </div>
                 </section>
-=======
-        </section>
-    
->>>>>>> ff172528c557dd1826914a599795e38694b91cd0
 @endsection
