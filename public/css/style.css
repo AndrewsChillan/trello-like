@@ -25,15 +25,6 @@ footer {
     width: 100%;
 }
 
-.profileBg {
-    
-    background-image: url('../image/bgProject.jpg');
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background-size: cover;
-}
-
 .profile {
     text-align: center;
     border: solid;
@@ -119,7 +110,8 @@ border-radius: 20px;
 }
 
 body {
-    background-color: #f0f0f0;
+    background-image: url(../image/bgProject.jpg);
+    background-size: cover;
 }
 
 #AddListBtn {
@@ -133,15 +125,6 @@ body {
 
     color:white;
 
-}
-
-#bgProjectCreation {
-    
-    background-image: url('../image/bgProject.jpg');
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background-size: cover;
 }
 
 .inputBg {
@@ -202,8 +185,8 @@ body {
     top: 0;
     bottom: 0;
     z-index: -1000;
-    background-image: url(../image/bgProject.jpg);
-    background-size: cover;
+
+
     display: flex;
     justify-content: center;
     align-items: center;
