@@ -195,3 +195,17 @@ body {
     flex-direction: column;
     gap: 10px;
 }
+
+.bgWelcome {
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -1000;
+    background-image: url(../image/bgProject.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #0858d0;
+}

@@ -107,6 +107,7 @@
 
 @yield('profile-form')
 @yield('content')
+@yield('pas auth')
 
 
 

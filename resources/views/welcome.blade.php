@@ -51,4 +51,12 @@
 {{-- Faire page pour les deconnectés --}}
 
 @endauth
+
+@section('pas auth')
+    @if (!Auth::user())
+    <div class="bgWelcome">
+        <h2>Bienvenue sur Trello-like !</h2>
+    </div>
+    @endif
+@endsection
             
